@@ -15,7 +15,24 @@ class DefaultController extends Controller
     {
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+            'base_dir' => realpath($this->getParameter('kernel.root_dir') . '/..') . DIRECTORY_SEPARATOR,
         ]);
+    }
+
+    /**
+     * @Route("/kontroler", name="kontroler")
+     */
+    public function topArticlesAction()
+    {
+        $articles = 1;
+        return $this->render('default/top_articles.html.twig', array('artiles' => $articles));
+    }
+
+    /**
+     * @Route("/hello/{name}", name="hello")
+     */
+    public function helloAction($name)
+    {
+        return $this->render('default/hello.html.twig', array('name' => $name));
     }
 }
