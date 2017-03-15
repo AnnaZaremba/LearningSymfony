@@ -22,6 +22,7 @@ chmod -R 0777 var/sessions
 Git configuration
 -----------------
 
+Change git user
 ```bash
 git config user.name "Anna Zaremba"
 git config user.email "aniazarem@gmail.com"
