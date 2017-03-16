@@ -5,9 +5,13 @@ use Acme\AccountBundle\Form\Model\Registration;
 use Acme\AccountBundle\Form\Type\RegistrationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 class AccountController extends Controller
 {
+    /**
+     * @Route("/formularz", name="formularz")
+     */
     public function registerAction()
     {
         $registration = new Registration();
