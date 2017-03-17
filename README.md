@@ -27,3 +27,17 @@ Change git user
 git config user.name "Anna Zaremba"
 git config user.email "aniazarem@gmail.com"
 ```
+
+Adding permissions
+--------------------
+```bash
+chmod -R 0777 foldername
+```
+
+PhpStorm
+---------------
+```bash
+Alt Ins 
+Alt Enter 
+Ctrl Alt L
+```

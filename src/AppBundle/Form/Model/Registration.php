@@ -1,13 +1,13 @@
 <?php
-namespace Acme\AccountBundle\Form\Model;
+namespace AppBundle\Form\Model;
 
-use Acme\AccountBundle\Entity\User;
+use AppBundle\Entity\User;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Registration
 {
     /**
-     * @Assert\Type(type="Acme\AccountBundle\Entity\User")
+     * @Assert\Type(type="AppBundle\Entity\User")
      * @Assert\Valid()
      */
     protected $user;

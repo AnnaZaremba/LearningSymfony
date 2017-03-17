@@ -1,8 +1,8 @@
 <?php
-namespace Acme\AccountBundle\Controller;
+namespace AppBundle\Controller;
 
-use Acme\AccountBundle\Form\Model\Registration;
-use Acme\AccountBundle\Form\Type\RegistrationType;
+use AppBundle\Form\Model\Registration;
+use AppBundle\Form\Type\RegistrationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,11 +16,11 @@ class AccountController extends Controller
     {
         $registration = new Registration();
         $form = $this->createForm(new RegistrationType(), $registration, array(
-            'action' => $this->generateUrl('account_create'),
+            'action' => $this->generateUrl('kontroler'),
         ));
 
         return $this->render(
-            'AcmeAccountBundle:Account:register.html.twig',
+            'formularz/register.html.twig',
             array('form' => $form->createView())
         );
     }
@@ -39,11 +39,11 @@ class AccountController extends Controller
             $em->persist($registration->getUser());
             $em->flush();
 
-            return $this->redirectToRoute(...);
+            return $this->redirectToRoute('');
         }
 
         return $this->render(
-            'AcmeAccountBundle:Account:register.html.twig',
+            'formularz/register.html.twig',
             array('form' => $form->createView())
         );
     }

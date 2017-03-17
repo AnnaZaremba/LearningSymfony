@@ -1,8 +1,7 @@
 <?php
-namespace Acme\AccountBundle\Entity;
+namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Doctrine\ORM\Mapping as ORM;;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 

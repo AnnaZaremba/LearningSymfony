@@ -4,10 +4,13 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+/**
+ * @Route("/lucky")
+ */
 class LuckyController extends Controller
 {
     /**
-     * @Route("/lucky/number")
+     * @Route("/number")
      */
     public function numberAction()
     {
@@ -19,7 +22,7 @@ class LuckyController extends Controller
     }
 
     /**
-     * @Route("/lucky/number/{nr}", name="numer", requirements={"nr": "\d+"})
+     * @Route("/number/{nr}", name="numer", requirements={"nr": "\d+"})
      */
     public function number2Action($nr)
     {

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DaneForm</title>
+    <meta charset="UTF-8">
+    <style TYPE="text/css">
+        fieldset {
+            width: 10cm;
+            border: 1px #FF0000 dotted;
+        }
+    </style>
+</head>
+<body>
+<form method="post" action="dane.html.twig">
+    <fieldset>
+        <legend>Dane osobowe</legend>
+        <table border="6">
+            {{ form_start(form) }}
+            <tr>
+                <td>
+                    {{ form_widget(form) }}
+                </td>
+            </tr>
+            {{ form_end(form) }}
+        </table>
+    </fieldset>
+</form>
+<fieldset>
+    <legend>Lista osób</legend>
+    <table border="6">
+        <tr>
+            <th>Id</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Wiek</th>
+        </tr>
+        <?php
+        for ($row = 0; $row < count($dane); $row++) {
+            ?>
+        <tr>
+            <td><?= $dane[$row]['id'] ?></td>
+            <td><?= $dane[$row]['imie'] ?></td>
+            <td><?= $dane[$row]['nazwisko'] ?></td>
+            <td><?= $dane[$row]['wiek'] ?></td>
+            <td align="center">
+                <form method="post" action="dane.html.twig">
+                    <input type="hidden" name="id" value="<?= $dane[$row]['id'] ?>">
+                    <input type="hidden" name="imie" value="<?= $dane[$row]['imie'] ?>">
+                    <input type="hidden" name="nazwisko" value="<?= $dane[$row]['nazwisko'] ?>">
+                    <input type="hidden" name="wiek" value="<?= $dane[$row]['wiek'] ?>">
+                    <input type="hidden" name="co_zrobic" value="edytuj">
+                    <input type="submit" value="edytuj">
+                </form>
+            </td>
+            <td align="center">
+                <form method="post" action="dane.html.twig">
+                    <input type="hidden" name="id" value="<?= $dane[$row]['id'] ?>">
+                    <input type="hidden" name="co_zrobic" value="usun">
+                    <input type="submit" value="usuń" onclick="return confirm_delete()">
+                </form>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript"></script>
+</body>
+</html>
