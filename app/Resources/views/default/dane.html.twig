@@ -8,6 +8,12 @@
             width: 10cm;
             border: 1px #FF0000 dotted;
         }
+
+        ul {
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px;
+        }
     </style>
 </head>
 <body>
@@ -21,7 +27,7 @@
             </td>
             <td>
                 {{ form_widget(form.imie) }}
-                {{ form_errors(form.imie) }}
+                <div style="color: red; ">{{ form_errors(form.imie) }}</div>
             </td>
         </tr>
         <tr>
@@ -30,7 +36,7 @@
             </td>
             <td>
                 {{ form_widget(form.nazwisko) }}
-                {{ form_errors(form.nazwisko) }}
+                <div style="color: red; ">{{ form_errors(form.nazwisko) }}</div>
             </td>
         </tr>
         <tr>
@@ -39,7 +45,7 @@
             </td>
             <td>
                 {{ form_widget(form.wiek) }}
-                {{ form_errors(form.wiek) }}
+                <div style="color: red; ">{{ form_errors(form.wiek) }}</div>
             </td>
         </tr>
         <tr>

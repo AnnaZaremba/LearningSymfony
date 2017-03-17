@@ -40,4 +40,5 @@ PhpStorm
 Alt Ins 
 Alt Enter 
 Ctrl Alt L
+Ctrl Spacja
 ```
