@@ -11,20 +11,44 @@
     </style>
 </head>
 <body>
-<form method="post" action="dane.html.twig">
-    <fieldset>
-        <legend>Dane osobowe</legend>
-        <table border="6">
-            {{ form_start(form) }}
-            <tr>
-                <td>
-                    {{ form_widget(form) }}
-                </td>
-            </tr>
-            {{ form_end(form) }}
-        </table>
-    </fieldset>
-</form>
+<fieldset>
+    <legend>Dane osobowe</legend>
+    {{ form_start(form, { 'attr': { 'novalidate': 'novalidate' }}) }}
+    <table border="6">
+        <tr>
+            <td>
+                {{ form_label(form.imie, 'Imię') }}
+            </td>
+            <td>
+                {{ form_widget(form.imie) }}
+                {{ form_errors(form.imie) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.nazwisko, 'Nazwisko') }}
+            </td>
+            <td>
+                {{ form_widget(form.nazwisko) }}
+                {{ form_errors(form.nazwisko) }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ form_label(form.wiek, 'Wiek') }}
+            </td>
+            <td>
+                {{ form_widget(form.wiek) }}
+                {{ form_errors(form.wiek) }}
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2"><input type="submit" value="zapisz"></td>
+        </tr>
+    </table>
+    {{ form_end(form) }}
+</fieldset>
+
 <fieldset>
     <legend>Lista osób</legend>
     <table border="6">
@@ -34,31 +58,11 @@
             <th>Nazwisko</th>
             <th>Wiek</th>
         </tr>
-        <?php
-        for ($row = 0; $row < count($dane); $row++) {
-            ?>
         <tr>
-            <td><?= $dane[$row]['id'] ?></td>
-            <td><?= $dane[$row]['imie'] ?></td>
-            <td><?= $dane[$row]['nazwisko'] ?></td>
-            <td><?= $dane[$row]['wiek'] ?></td>
-            <td align="center">
-                <form method="post" action="dane.html.twig">
-                    <input type="hidden" name="id" value="<?= $dane[$row]['id'] ?>">
-                    <input type="hidden" name="imie" value="<?= $dane[$row]['imie'] ?>">
-                    <input type="hidden" name="nazwisko" value="<?= $dane[$row]['nazwisko'] ?>">
-                    <input type="hidden" name="wiek" value="<?= $dane[$row]['wiek'] ?>">
-                    <input type="hidden" name="co_zrobic" value="edytuj">
-                    <input type="submit" value="edytuj">
-                </form>
-            </td>
-            <td align="center">
-                <form method="post" action="dane.html.twig">
-                    <input type="hidden" name="id" value="<?= $dane[$row]['id'] ?>">
-                    <input type="hidden" name="co_zrobic" value="usun">
-                    <input type="submit" value="usuń" onclick="return confirm_delete()">
-                </form>
-            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </table>
     <script type="text/javascript"></script>
