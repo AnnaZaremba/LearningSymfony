@@ -55,22 +55,26 @@
     {{ form_end(form) }}
 </fieldset>
 
-<fieldset>
-    <legend>Lista osób</legend>
-    <table border="6">
-        <tr>
-            <th>Id</th>
-            <th>Imię</th>
-            <th>Nazwisko</th>
-            <th>Wiek</th>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
-    <script type="text/javascript"></script>
+{% if isValid == 1 %}
+    <fieldset>
+        <legend>Lista osób</legend>
+        <table border="6">
+            <tr>
+                <th>Id</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Wiek</th>
+            </tr>
+
+            <tr>
+                <td>id</td>
+                <td>{{ osoba.imie }}</td>
+                <td>{{ osoba.nazwisko }}</td>
+                <td>{{ osoba.wiek }}</td>
+            </tr>
+        </table>
+    </fieldset>
+{% endif %}
+<script type="text/javascript"></script>
 </body>
 </html>

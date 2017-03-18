@@ -28,6 +28,8 @@ class DaneFormController extends Controller
 
         return $this->render('default/dane.html.twig', array(
             'form' => $form->createView(),
+            'isValid' => $form->isValid(),
+            'osoba' => $osoba
         ));
     }
 }
