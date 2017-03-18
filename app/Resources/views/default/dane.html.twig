@@ -65,7 +65,6 @@
                 <th>Nazwisko</th>
                 <th>Wiek</th>
             </tr>
-
             <tr>
                 <td>id</td>
                 <td>{{ osoba.imie }}</td>
@@ -75,14 +74,25 @@
         </table>
     </fieldset>
 {% endif %}
-
-{% for daneOsobowe in dane %}
-    <li>{{ daneOsobowe.id }}
-        {{ daneOsobowe.imie }}
-        {{ daneOsobowe.nazwisko }}
-        {{ daneOsobowe.wiek }}</li>
-{% endfor %}
-
+<fieldset>
+    <legend>Lista osób</legend>
+    <table border="6">
+        <tr>
+            <th>Id</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Wiek</th>
+        </tr>
+        {% for daneOsobowe in dane %}
+            <tr>
+                <td>{{ daneOsobowe.id }}</td>
+                <td>{{ daneOsobowe.imie }}</td>
+                <td>{{ daneOsobowe.nazwisko }}</td>
+                <td>{{ daneOsobowe.wiek }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</fieldset>
 
 <script type="text/javascript"></script>
 </body>
