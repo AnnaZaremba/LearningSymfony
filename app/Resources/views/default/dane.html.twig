@@ -89,6 +89,14 @@
                 <td>{{ daneOsobowe.imie }}</td>
                 <td>{{ daneOsobowe.nazwisko }}</td>
                 <td>{{ daneOsobowe.wiek }}</td>
+                <td align="center" colspan="2"><input type="submit" value="edytuj"></td>
+
+                <td align="center" colspan="2">
+                    <form method="post" action="{{ path('usun') }}">
+                        <input type="hidden" name="id" value="{{ daneOsobowe.id }}">
+                        <input type="submit" value="usuń">
+                    </form>
+                </td>
             </tr>
         {% endfor %}
     </table>

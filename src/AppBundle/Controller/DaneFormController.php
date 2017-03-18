@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\DaneOsobowe;
 use AppBundle\Entity\Osoba;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -26,6 +27,18 @@ class DaneFormController extends Controller
 
         $form->handleRequest($request);
 
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+
+            $daneOsobowe = new DaneOsobowe();
+            $daneOsobowe->setImie($osoba->getImie());
+            $daneOsobowe->setNazwisko($osoba->getNazwisko());
+            $daneOsobowe->setWiek($osoba->getWiek());
+
+            $em->persist($daneOsobowe);
+            $em->flush();
+        }
+
         $dane = $this->getDoctrine()
             ->getRepository('AppBundle:DaneOsobowe')
             ->findAll();
@@ -36,5 +49,23 @@ class DaneFormController extends Controller
             'osoba' => $osoba,
             'dane' => $dane
         ));
+    }
+
+    /**
+     * @Route("/daneform/usun", name="usun")
+     */
+    public function deleteAction(Request $request)
+    {
+        $id = $request->get('id');
+
+        $daneOsobowe = $this->getDoctrine()
+            ->getRepository('AppBundle:DaneOsobowe')
+            ->find($id);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($daneOsobowe);
+        $em->flush();
+
+        return $this->redirectToRoute("daneform");
     }
 }
