@@ -1,0 +1,100 @@
+{% extends '::twigus.html.twig' %}
+{% block container %}
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>DaneForm</title>
+        <meta charset="UTF-8">
+        <style TYPE="text/css">
+            ul {
+                list-style-type: none;
+                margin: 0px;
+                padding: 0px;
+            }
+        </style>
+    </head>
+    <body>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Dane osobowe</h2>
+            {{ form_start(form, { 'attr': { 'novalidate': 'novalidate' }}) }}
+            {% if form.id is defined %}
+                {{ form_widget(form.id) }}
+            {% endif %}
+            <table class="table table-bordered">
+                <tr>
+                    <td>
+                        {{ form_label(form.imie, 'Imię') }}
+                    </td>
+                    <td>
+                        {{ form_widget(form.imie) }}
+                        <div style="color: red; ">{{ form_errors(form.imie) }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ form_label(form.nazwisko, 'Nazwisko') }}
+                    </td>
+                    <td>
+                        {{ form_widget(form.nazwisko) }}
+                        <div style="color: red; ">{{ form_errors(form.nazwisko) }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {{ form_label(form.wiek, 'Wiek') }}
+                    </td>
+                    <td>
+                        {{ form_widget(form.wiek) }}
+                        <div style="color: red; ">{{ form_errors(form.wiek) }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2"><button type="submit" class="btn btn-primary">Zapisz</button>
+                    </td>
+                </tr>
+            </table>
+            {{ form_end(form) }}
+        </div>
+    </div>
+    <h2>Lista osób</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Wiek</th>
+        </tr>
+        {% if dane > 0 %}
+            {% for daneOsobowe in dane %}
+                <tr>
+                    <td>{{ daneOsobowe.id }}</td>
+                    <td>{{ daneOsobowe.imie }}</td>
+                    <td>{{ daneOsobowe.nazwisko }}</td>
+                    <td>{{ daneOsobowe.wiek }}</td>
+                    <td align="center" colspan="2">
+                        <form method="post" action="{{ path('edytuj') }}">
+                            <input type="hidden" name="id" value="{{ daneOsobowe.id }}">
+                            <button type="submit" class="btn btn-primary">Edytuj</button>
+                        </form>
+                    </td>
+
+                    <td align="center" colspan="2">
+                        <form method="post" action="{{ path('usun') }}">
+                            <input type="hidden" name="id" value="{{ daneOsobowe.id }}">
+                            <button type="submit" class="btn btn-primary">Usuń</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+    </table>
+
+    <script type="text/javascript"></script>
+    </body>
+    </html>
+
+
+
+{% endblock %}

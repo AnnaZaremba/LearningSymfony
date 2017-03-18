@@ -86,6 +86,7 @@
             <th>Nazwisko</th>
             <th>Wiek</th>
         </tr>
+        {% if dane > 0 %}
         {% for daneOsobowe in dane %}
             <tr>
                 <td>{{ daneOsobowe.id }}</td>
@@ -107,6 +108,7 @@
                 </td>
             </tr>
         {% endfor %}
+        {% endif %}
     </table>
 </fieldset>
 

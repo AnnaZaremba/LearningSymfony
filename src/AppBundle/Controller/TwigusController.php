@@ -28,7 +28,7 @@ class TwigusController extends Controller
     }
 
     /**
-     * @Route("twigus//kontakt", name="kontakt")
+     * @Route("twigus/kontakt", name="kontakt")
      * @Template()
      */
     public function kontaktAction(Request $request)
