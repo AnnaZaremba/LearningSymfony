@@ -75,6 +75,15 @@
         </table>
     </fieldset>
 {% endif %}
+
+{% for daneOsobowe in dane %}
+    <li>{{ daneOsobowe.id }}
+        {{ daneOsobowe.imie }}
+        {{ daneOsobowe.nazwisko }}
+        {{ daneOsobowe.wiek }}</li>
+{% endfor %}
+
+
 <script type="text/javascript"></script>
 </body>
 </html>

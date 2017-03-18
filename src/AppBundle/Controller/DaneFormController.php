@@ -30,12 +30,11 @@ class DaneFormController extends Controller
             ->getRepository('AppBundle:DaneOsobowe')
             ->findAll();
 
-        var_dump($dane);
-
         return $this->render('default/dane.html.twig', array(
             'form' => $form->createView(),
             'isValid' => $form->isValid(),
-            'osoba' => $osoba
+            'osoba' => $osoba,
+            'dane' => $dane
         ));
     }
 }
