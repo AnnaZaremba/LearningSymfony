@@ -37,8 +37,8 @@ chmod -R 0777 foldername
 PhpStorm
 ---------------
 ```bash
-Alt Ins 
-Alt Enter 
-Ctrl Alt L
-Ctrl Spacja
+Alt Ins - generuje get i set controller...
+Alt Enter - podpowiada np. importuje klasy
+Ctrl Alt L - formatowanie
+Ctrl Spacja - pokazuje dostępne metody
 ```
