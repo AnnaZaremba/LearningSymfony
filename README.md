@@ -29,16 +29,29 @@ git config user.email "aniazarem@gmail.com"
 ```
 
 Adding permissions
---------------------
+------------------
 ```bash
 chmod -R 0777 foldername
 ```
 
+Routing
+-------
+```bash
+bin/console debug:router
+```
+
+Czyszczenie Cache
+-----------------
+```
+sudo bin/console cache:clear
+```
+
 PhpStorm
----------------
+--------
 ```bash
 Alt Ins - generuje get i set controller...
 Alt Enter - podpowiada np. importuje klasy
 Ctrl Alt L - formatowanie
 Ctrl Spacja - pokazuje dostępne metody
 ```
+
