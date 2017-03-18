@@ -5,6 +5,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class Osoba
 {
+    private $id;
+
     /**
      * @var string
      * @Assert\NotBlank(message="Pole nie może być puste.")
@@ -38,6 +40,22 @@ class Osoba
      * )
      */
     private $wiek;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
     /**
      * @return mixed
