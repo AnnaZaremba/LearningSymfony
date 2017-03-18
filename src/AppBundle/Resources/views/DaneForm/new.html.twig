@@ -20,6 +20,9 @@
 <fieldset>
     <legend>Dane osobowe</legend>
     {{ form_start(form, { 'attr': { 'novalidate': 'novalidate' }}) }}
+    {% if form.id is defined %}
+        {{ form_widget(form.id) }}
+    {% endif %}
     <table border="6">
         <tr>
             <td>

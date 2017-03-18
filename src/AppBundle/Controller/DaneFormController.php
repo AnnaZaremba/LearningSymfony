@@ -78,17 +78,19 @@ class DaneFormController extends Controller
     public function editAction(Request $request)
     {
         $id = $request->get('id');
-
-        /** @var DaneOsobowe $daneOsobowe */
-        $daneOsobowe = $this->getDoctrine()
-            ->getRepository('AppBundle:DaneOsobowe')
-            ->find($id);
-
         $osoba = new Osoba();
-        $osoba->setId($daneOsobowe->getId());
-        $osoba->setImie($daneOsobowe->getImie());
-        $osoba->setNazwisko($daneOsobowe->getNazwisko());
-        $osoba->setWiek($daneOsobowe->getWiek());
+
+        if (isset($id)) {
+            /** @var DaneOsobowe $daneOsobowe */
+            $daneOsobowe = $this->getDoctrine()
+                ->getRepository('AppBundle:DaneOsobowe')
+                ->find($id);
+
+            $osoba->setId($daneOsobowe->getId());
+            $osoba->setImie($daneOsobowe->getImie());
+            $osoba->setNazwisko($daneOsobowe->getNazwisko());
+            $osoba->setWiek($daneOsobowe->getWiek());
+        }
 
         $form = $this->createFormBuilder($osoba)
             ->add('id', HiddenType::class)
@@ -96,6 +98,24 @@ class DaneFormController extends Controller
             ->add('nazwisko', TextType::class)
             ->add('wiek', TextType::class)
             ->getForm();
+
+        $form->handleRequest($request);
+
+        if($form->isValid()) {
+            $daneOsobowe = $this->getDoctrine()
+                ->getRepository('AppBundle:DaneOsobowe')
+                ->find($osoba->getId());
+
+            $em = $this->getDoctrine()->getManager();
+
+            $daneOsobowe->setImie($osoba->getImie());
+            $daneOsobowe->setNazwisko($osoba->getNazwisko());
+            $daneOsobowe->setWiek($osoba->getWiek());
+
+            $em->flush();
+
+            return $this->redirectToRoute("daneform");
+        }
 
         $dane = $this->getDoctrine()
             ->getRepository('AppBundle:DaneOsobowe')
