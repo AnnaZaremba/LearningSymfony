@@ -68,6 +68,11 @@ class KsiazkaKucharskaController extends Controller
      */
     public function wigiliaAction(Request $request)
     {
+//        $dane = $this->getDoctrine()
+//            ->getRepository('AppBundle:Przepis')
+//            ->findAll();
+//
+//        var_dump($dane);
         return [];
     }
 
