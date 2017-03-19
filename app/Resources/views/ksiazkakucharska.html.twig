@@ -50,8 +50,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ path('kk') }}">Start</a></li>
                 <li><a href="{{ path('kkomnie') }}">O mnie</a></li>
-                <li><a href="#">O kuchni</a></li>
-                <li><a href="#">Kontakt</a></li>
+                <li><a href="{{ path('okuchni') }}">O kuchni</a></li>
+                <li><a href="{{ path('kkkontakt') }}">Kontakt</a></li>
             </ul>
             <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="Search...">
@@ -64,15 +64,14 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="#">Przepisy<span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="{{ path('przepisy') }}">Przepisy<span class="sr-only">(current)</span></a></li>
                 <li><a href="{{ path('sniadanie') }}">Śniadanie</a></li>
                 <li><a href="{{ path('obiad') }}">Obiad</a></li>
                 <li><a href="{{ path('kolacja') }}">Kolacja</a></li>
             </ul>
             <ul class="nav nav-sidebar">
-                <li><a href="{{ path('wigilia') }}">Wigilia</a></li>
-                <li><a href="{{ path('wielkanoc') }}">Wielkanoc</a></li>
-                <li><a href="{{ path('urodziny') }}">Urodziny</a></li>
+                <li><a href="{{ path('uroczystosci') }}">Uroczystości</a></li>
+
             </ul>
             <ul class="nav nav-sidebar">
                 <li><a href="{{ path('daniaglowne') }}">Dania główne</a></li>

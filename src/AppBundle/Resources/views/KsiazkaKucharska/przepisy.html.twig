@@ -1,0 +1,69 @@
+{% extends '::ksiazkakucharska.html.twig' %}
+{% block container %}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Książka kucharska</h1>
+    <h2>PRZEPISY</h2>
+    <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <a href="{{ path('sniadanie') }}">
+                <img src="{{ asset('images/breakfast.jpg') }}"
+                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            </a>
+            <h4>ŚNIADANIE</h4>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <a href="{{ path('obiad') }}">
+                <img src="{{ asset('images/dinner.jpg') }}"
+                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            </a>
+            <h4>OBIAD</h4>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <a href="{{ path('kolacja') }}">
+                <img src="{{ asset('images/supper.jpg') }}"
+                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            </a>
+            <h4>KOLACJA</h4>
+        </div>
+    </div>
+    <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <a href="{{ path('uroczystosci') }}">
+                <img src=""
+                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            </a>
+            <h4>UROCZYSTOŚCI</h4>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <a href="{{ path('desery') }}">
+                <img src=""
+                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            </a>
+            <h4>DESERY</h4>
+        </div>
+    </div>
+    <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <a href="{{ path('daniaglowne') }}">
+                <img src=""
+                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            </a>
+            <h4>DANIA GŁÓWNE</h4>
+            <span class="text-muted">Something else</span>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <a href="{{ path('przekaski') }}">
+                <img src=""
+                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            </a>
+            <h4>PRZEKĄSKI</h4>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <a href="{{ path('pieczywo') }}">
+                <img src=""
+                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            </a>
+            <h4>PIECZYWO</h4>
+        </div>
+    </div>
+{% endblock %}

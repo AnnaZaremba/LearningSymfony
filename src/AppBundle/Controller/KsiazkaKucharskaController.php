@@ -18,6 +18,15 @@ class KsiazkaKucharskaController extends Controller
     }
 
     /**
+     * @Route("/ksiazkakucharska/przepisy", name="przepisy")
+     * @Template()
+     */
+    public function przepisyAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
      * @Route("/ksiazkakucharska/sniadanie", name="sniadanie")
      * @Template()
      */
@@ -40,6 +49,15 @@ class KsiazkaKucharskaController extends Controller
      * @Template()
      */
     public function kolacjaAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Route("/ksiazkakucharska/uroczystosci", name="uroczystosci")
+     * @Template()
+     */
+    public function uroczystosciAction(Request $request)
     {
         return [];
     }
@@ -112,6 +130,24 @@ class KsiazkaKucharskaController extends Controller
      * @Template()
      */
     public function omnieAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Route("/ksiazkakucharska/okuchni", name="okuchni")
+     * @Template()
+     */
+    public function okuchniAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Route("/ksiazkakucharska/kontakt", name="kkkontakt")
+     * @Template()
+     */
+    public function kontaktAction(Request $request)
     {
         return [];
     }
