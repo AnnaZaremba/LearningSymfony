@@ -1,9 +1,27 @@
 {% extends '::ksiazkakucharska.html.twig' %}
 {% block container %}
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h1 class="page-header">Książka kucharska</h1>
-        <h2>WIGILIA</h2>
-
-
+    <h1 class="page-header">Książka kucharska</h1>
+    <h2>WIGILIA</h2>
+    <table border="6">
+        <tr>
+            <th>Id</th>
+            <th>Nazwa</th>
+            <th>Składniki</th>
+            <th>Wykonanie</th>
+            <th>Źródło</th>
+            <th>Uwagi</th>
+        </tr>
+        {% for dane in dane %}
+            <tr>
+                <td>{{ dane.id }}</td>
+                <td>{{ dane.nazwa }}</td>
+                <td>{{ dane.skladniki }}</td>
+                <td>{{ dane.wykonanie }}</td>
+                <td>{{ dane.zrodlo }}</td>
+                <td>{{ dane.uwagi }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 
 {% endblock %}

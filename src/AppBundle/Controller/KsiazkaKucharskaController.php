@@ -1,9 +1,11 @@
 <?php
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Przepis;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
 class KsiazkaKucharskaController extends Controller
@@ -68,12 +70,12 @@ class KsiazkaKucharskaController extends Controller
      */
     public function wigiliaAction(Request $request)
     {
-//        $dane = $this->getDoctrine()
-//            ->getRepository('AppBundle:Przepis')
-//            ->findAll();
-//
-//        var_dump($dane);
-        return [];
+        $dane = $this->getDoctrine()
+            ->getRepository('AppBundle:Przepis')
+            ->findAll();
+
+        return $this->render('@App/KsiazkaKucharska/wigilia.html.twig', array(
+            'dane' => $dane));
     }
 
     /**

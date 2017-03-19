@@ -1,12 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: marcinos
- * Date: 19.03.17
- * Time: 15:49
- */
 
 namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
@@ -14,11 +10,36 @@ namespace AppBundle\Entity;
  */
 class Przepis
 {
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
     private $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $nazwa;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $skladniki;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $wykonanie;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $zrodlo;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $uwagi;
 
     /**

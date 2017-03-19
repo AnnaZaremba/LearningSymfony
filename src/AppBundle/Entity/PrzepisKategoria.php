@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: marcinos
- * Date: 19.03.17
- * Time: 15:54
- */
 
 namespace AppBundle\Entity;
 
@@ -14,8 +8,22 @@ namespace AppBundle\Entity;
  */
 class PrzepisKategoria
 {
+
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
     private $id;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
     private $idprzepis;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
     private $idkategoria;
 
     /**

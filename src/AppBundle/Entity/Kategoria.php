@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: marcinos
- * Date: 19.03.17
- * Time: 15:53
- */
 
 namespace AppBundle\Entity;
 
@@ -14,8 +8,21 @@ namespace AppBundle\Entity;
  */
 class Kategoria
 {
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
     private $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $nazwa;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     private $opis;
 
     /**
