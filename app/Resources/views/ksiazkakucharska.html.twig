@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset('public/twig/favicon.ico') }}">
 
-    <title>Dashboard Template for Bootstrap</title>
+    <title>Książka kucharska</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('public/bootstrap/3.3.7/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -44,12 +44,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Ksiażka kucharska</a>
+            <a class="navbar-brand" href="{{ path('kk') }}">Ksiażka kucharska</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ path('kk') }}">Start</a></li>
-                <li><a href="#">O mnie</a></li>
+                <li><a href="{{ path('kkomnie') }}">O mnie</a></li>
                 <li><a href="#">O kuchni</a></li>
                 <li><a href="#">Kontakt</a></li>
             </ul>
@@ -70,15 +70,15 @@
                 <li><a href="{{ path('kolacja') }}">Kolacja</a></li>
             </ul>
             <ul class="nav nav-sidebar">
-                <li><a href="">Wigilia</a></li>
-                <li><a href="">Wielkanoc</a></li>
-                <li><a href="">Urodziny</a></li>
+                <li><a href="{{ path('wigilia') }}">Wigilia</a></li>
+                <li><a href="{{ path('wielkanoc') }}">Wielkanoc</a></li>
+                <li><a href="{{ path('urodziny') }}">Urodziny</a></li>
             </ul>
             <ul class="nav nav-sidebar">
-                <li><a href="">Dania główne</a></li>
-                <li><a href="">Przekąski</a></li>
-                <li><a href="">Desery</a></li>
-                <li><a href="">Pieczywo</a></li>
+                <li><a href="{{ path('daniaglowne') }}">Dania główne</a></li>
+                <li><a href="{{ path('przekaski') }}">Przekąski</a></li>
+                <li><a href="{{ path('desery') }}">Desery</a></li>
+                <li><a href="{{ path('pieczywo') }}">Pieczywo</a></li>
             </ul>
         </div>
 

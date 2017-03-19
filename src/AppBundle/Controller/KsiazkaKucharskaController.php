@@ -43,4 +43,76 @@ class KsiazkaKucharskaController extends Controller
     {
         return [];
     }
+
+    /**
+     * @Route("/ksiazkakucharska/wigilia", name="wigilia")
+     * @Template()
+     */
+    public function wigiliaAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Route("/ksiazkakucharska/wielkanoc", name="wielkanoc")
+     * @Template()
+     */
+    public function wielkanocAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Route("/ksiazkakucharska/urodziny", name="urodziny")
+     * @Template()
+     */
+    public function urodzinyAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Route("/ksiazkakucharska/daniaglowne", name="daniaglowne")
+     * @Template()
+     */
+    public function daniaglowneAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Route("/ksiazkakucharska/przekaski", name="przekaski")
+     * @Template()
+     */
+    public function przekaskiAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Route("/ksiazkakucharska/desery", name="desery")
+     * @Template()
+     */
+    public function deseryAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Route("/ksiazkakucharska/pieczywo", name="pieczywo")
+     * @Template()
+     */
+    public function pieczywoAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Route("/ksiazkakucharska/omnie", name="kkomnie")
+     * @Template()
+     */
+    public function omnieAction(Request $request)
+    {
+        return [];
+    }
 }
