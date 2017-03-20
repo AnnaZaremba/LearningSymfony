@@ -1,6 +1,8 @@
 <?php
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Kontakt;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -200,6 +202,19 @@ class KsiazkaKucharskaController extends Controller
      */
     public function kontaktAction(Request $request)
     {
-        return [];
+        $kontakt = new Kontakt();
+
+        $form = $this->createFormBuilder($kontakt)
+            ->add('imie', TextType::class)
+            ->add('email', TextType::class)
+            ->add('wiadomosc', TextType::class)
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        return array(
+            'form' => $form->createView(),
+            'kontakt' => $kontakt,
+        );
     }
 }

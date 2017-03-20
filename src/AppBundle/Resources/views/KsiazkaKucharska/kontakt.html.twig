@@ -4,7 +4,40 @@
         <h1 class="page-header">Książka kucharska</h1>
         <div class="starter-template">
             <h1>KONTAKT</h1>
-            <p class="lead"><br>:)</p>
         </div>
+        {{ form_start(form, { 'attr': { 'novalidate': 'novalidate' }}) }}
+        <table border="6">
+            <tr>
+                <td>
+                    {{ form_label(form.imie, 'Imię') }}
+                </td>
+                <td>
+                    {{ form_widget(form.imie) }}
+                    <div style="color: red; ">{{ form_errors(form.imie) }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form_label(form.email, 'E-mail') }}
+                </td>
+                <td>
+                    {{ form_widget(form.email) }}
+                    <div style="color: red; ">{{ form_errors(form.email) }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form_label(form.wiadomosc, 'Wiadomość') }}
+                </td>
+                <td>
+                    {{ form_widget(form.wiadomosc) }}
+                    <div style="color: red; ">{{ form_errors(form.wiadomosc) }}</div>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" value="zapisz"></td>
+            </tr>
+        </table>
+        {{ form_end(form) }}
     </div>
 {% endblock %}
