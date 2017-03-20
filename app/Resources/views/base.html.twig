@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
-    <title>{% block title %}Welcome!{% endblock %}</title>
-    {% block stylesheets %}{% endblock %}
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <meta charset="UTF-8"/>
+    <title>Ania Symfonuje</title>
 </head>
 <body>
-{% block body %}{% endblock %}
-{% block javascripts %}{% endblock %}
+<div>
+    <h1><a href="{{ path('ksiazkakucharska') }}">Książka kucharska</a></h1>
+</div>
+<div>
+    <h2><a href="{{ path('aniazarem') }}">aniazarem</a></h2>
+</div>
+<div>
+    <h2><a href="{{ path('daneform') }}">daneform</a></h2>
+</div>
+<div>
+    <h2><a href="{{ path('kontaktform') }}">kontaktform</a></h2>
+</div>
+<div>
+    <h2><a href="{{ path('app_lucky_number') }}">luckynumber</a></h2>
+</div>
+<div>
+    <h2><a href="{{ path('newform') }}">newform</a></h2>
+</div>
+<div>
+    <h2><a href="{{ path('tabela') }}">tabela</a></h2>
+</div>
+<div>
+    <h2><a href="{{ path('start') }}">twigus</a></h2>
+</div>
 </body>
 </html>

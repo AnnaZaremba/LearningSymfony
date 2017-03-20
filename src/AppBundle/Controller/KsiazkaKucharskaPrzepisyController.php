@@ -10,22 +10,36 @@ use Symfony\Component\HttpFoundation\Request;
  * Class KsiazkaKucharskaPrzepisyController
  * @package AppBundle\Controller
  *
- * @Route("/ksiazkakucharska")
+ * @Route("/ksiazkakucharska/przepisy")
  */
 class KsiazkaKucharskaPrzepisyController extends Controller
 {
     /**
-     * @Route("/przepisy", name="przepisy")
+     * @param $id
+     * @return array
+     *
+     * @Route("/{id}", name="przepisid", requirements={"id": "\d+"})
+     * @Template()
+     */
+    public function findAction($id)
+    {
+        return array(
+            'id' => $id,
+        );
+    }
+
+    /**
+     * @Route("/", name="przepisy")
      * @Template()
      */
     public function przepisyAction(Request $request)
     {
         $dane = $this->getDoctrine()
             ->getRepository('AppBundle:Przepis')
-            ->findAll();
+            ->findBy([], ['nazwa' => 'ASC']);
 
-        return $this->render('@App/KsiazkaKucharskaPrzepisy/przepisy.html.twig', array(
+        return array(
             'dane' => $dane,
-        ));
+        );
     }
 }

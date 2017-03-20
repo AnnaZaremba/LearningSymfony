@@ -56,7 +56,6 @@
                      width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
             </a>
             <h4>DANIA GŁÓWNE</h4>
-            <span class="text-muted">Something else</span>
         </div>
         <div class="col-xs-6 col-sm-3 placeholder">
             <a href="{{ path('pieczywo') }}">
@@ -73,9 +72,9 @@
             <h4>PRZEKĄSKI</h4>
         </div>
     </div>
-    {% for dane in dane %}
+    {% for przepis in dane %}
         <ul>
-            <li>{{ dane.nazwa }}</li>
+            <li>{{ przepis.nazwa }}</li>
         </ul>
     {% endfor %}
 {% endblock %}

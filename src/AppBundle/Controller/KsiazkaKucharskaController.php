@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 class KsiazkaKucharskaController extends Controller
 {
     /**
-     * @Route("/", name="kk")
+     * @Route("/", name="ksiazkakucharska")
      * @Template()
      */
     public function startAction(Request $request)
@@ -24,7 +24,7 @@ class KsiazkaKucharskaController extends Controller
     }
 
     /**
-     * @Route("/omnie", name="kkomnie")
+     * @Route("/omnie", name="ksiazkakucharskaomnie")
      * @Template()
      */
     public function omnieAction(Request $request)
@@ -33,7 +33,7 @@ class KsiazkaKucharskaController extends Controller
     }
 
     /**
-     * @Route("/okuchni", name="okuchni")
+     * @Route("/okuchni", name="ksiazkakucharskaokuchni")
      * @Template()
      */
     public function okuchniAction(Request $request)

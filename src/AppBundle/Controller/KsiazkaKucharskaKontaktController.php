@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 class KsiazkaKucharskaKontaktController extends Controller
 {
     /**
-     * @Route("/kontakt", name="kkkontakt")
+     * @Route("/kontakt", name="ksiazkakucharskakontakt")
      * @Template()
      */
     public function kontaktAction(Request $request)
