@@ -1,11 +1,9 @@
 <?php
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Przepis;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
 class KsiazkaKucharskaController extends Controller
@@ -25,7 +23,13 @@ class KsiazkaKucharskaController extends Controller
      */
     public function przepisyAction(Request $request)
     {
-        return [];
+        $dane = $this->getDoctrine()
+            ->getRepository('AppBundle:Przepis')
+            ->findAll();
+
+        return $this->render('@App/KsiazkaKucharska/przepisy.html.twig', array(
+            'dane' => $dane,
+        ));
     }
 
     /**
@@ -56,6 +60,24 @@ class KsiazkaKucharskaController extends Controller
     }
 
     /**
+     * @Route("/ksiazkakucharska/desery", name="desery")
+     * @Template()
+     */
+    public function deseryAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Route("/ksiazkakucharska/salatki", name="salatki")
+     * @Template()
+     */
+    public function salatkiAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
      * @Route("/ksiazkakucharska/uroczystosci", name="uroczystosci")
      * @Template()
      */
@@ -65,21 +87,16 @@ class KsiazkaKucharskaController extends Controller
     }
 
     /**
-     * @Route("/ksiazkakucharska/wigilia", name="wigilia")
+     * @Route("/ksiazkakucharska/uroczystosci/wigilia", name="wigilia")
      * @Template()
      */
     public function wigiliaAction(Request $request)
     {
-        $dane = $this->getDoctrine()
-            ->getRepository('AppBundle:Przepis')
-            ->findAll();
-
-        return $this->render('@App/KsiazkaKucharska/wigilia.html.twig', array(
-            'dane' => $dane));
+        return [];
     }
 
     /**
-     * @Route("/ksiazkakucharska/wielkanoc", name="wielkanoc")
+     * @Route("/ksiazkakucharska/uroczystosci/wielkanoc", name="wielkanoc")
      * @Template()
      */
     public function wielkanocAction(Request $request)
@@ -88,7 +105,7 @@ class KsiazkaKucharskaController extends Controller
     }
 
     /**
-     * @Route("/ksiazkakucharska/urodziny", name="urodziny")
+     * @Route("/ksiazkakucharska/uroczystosci/urodziny", name="urodziny")
      * @Template()
      */
     public function urodzinyAction(Request $request)
@@ -106,19 +123,37 @@ class KsiazkaKucharskaController extends Controller
     }
 
     /**
-     * @Route("/ksiazkakucharska/przekaski", name="przekaski")
+     * @Route("/ksiazkakucharska/daniaglowne/makarony", name="makarony")
      * @Template()
      */
-    public function przekaskiAction(Request $request)
+    public function makaronyAction(Request $request)
     {
         return [];
     }
 
     /**
-     * @Route("/ksiazkakucharska/desery", name="desery")
+     * @Route("/ksiazkakucharska/daniaglowne/miesa", name="miesa")
      * @Template()
      */
-    public function deseryAction(Request $request)
+    public function miesaAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Route("/ksiazkakucharska/daniaglowne/ryby", name="ryby")
+     * @Template()
+     */
+    public function rybyAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Route("/ksiazkakucharska/daniaglowne/zupy", name="zupy")
+     * @Template()
+     */
+    public function zupyAction(Request $request)
     {
         return [];
     }
@@ -128,6 +163,15 @@ class KsiazkaKucharskaController extends Controller
      * @Template()
      */
     public function pieczywoAction(Request $request)
+    {
+        return [];
+    }
+
+    /**
+     * @Route("/ksiazkakucharska/przekaski", name="przekaski")
+     * @Template()
+     */
+    public function przekaskiAction(Request $request)
     {
         return [];
     }

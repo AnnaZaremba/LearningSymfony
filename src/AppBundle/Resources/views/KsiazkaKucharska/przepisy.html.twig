@@ -28,42 +28,54 @@
     </div>
     <div class="row placeholders">
         <div class="col-xs-6 col-sm-3 placeholder">
-            <a href="{{ path('uroczystosci') }}">
-                <img src=""
-                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-            </a>
-            <h4>UROCZYSTOŚCI</h4>
-        </div>
-        <div class="col-xs-6 col-sm-3 placeholder">
             <a href="{{ path('desery') }}">
-                <img src=""
+                <img src="{{ asset('images/dessert.jpg') }}"
                      width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
             </a>
             <h4>DESERY</h4>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <a href="{{ path('salatki') }}">
+                <img src="{{ asset('images/salad.jpg') }}"
+                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            </a>
+            <h4>SAŁATKI I SURÓWKI</h4>
+        </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <a href="{{ path('uroczystosci') }}">
+                <img src="{{ asset('images/celebration.jpg') }}"
+                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            </a>
+            <h4>UROCZYSTOŚCI</h4>
         </div>
     </div>
     <div class="row placeholders">
         <div class="col-xs-6 col-sm-3 placeholder">
             <a href="{{ path('daniaglowne') }}">
-                <img src=""
+                <img src="{{ asset('images/dish.jpg') }}"
                      width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
             </a>
             <h4>DANIA GŁÓWNE</h4>
             <span class="text-muted">Something else</span>
         </div>
         <div class="col-xs-6 col-sm-3 placeholder">
-            <a href="{{ path('przekaski') }}">
-                <img src=""
-                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-            </a>
-            <h4>PRZEKĄSKI</h4>
-        </div>
-        <div class="col-xs-6 col-sm-3 placeholder">
             <a href="{{ path('pieczywo') }}">
-                <img src=""
+                <img src="{{ asset('images/bread.jpg') }}"
                      width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
             </a>
             <h4>PIECZYWO</h4>
         </div>
+        <div class="col-xs-6 col-sm-3 placeholder">
+            <a href="{{ path('przekaski') }}">
+                <img src="{{ asset('images/snacks.jpg') }}"
+                     width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            </a>
+            <h4>PRZEKĄSKI</h4>
+        </div>
     </div>
+    {% for dane in dane %}
+        <ul>
+            <li>{{ dane.nazwa }}</li>
+        </ul>
+    {% endfor %}
 {% endblock %}
