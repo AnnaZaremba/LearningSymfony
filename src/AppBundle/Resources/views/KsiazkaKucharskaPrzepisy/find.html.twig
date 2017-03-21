@@ -2,15 +2,23 @@
 {% block container %}
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div><h1 class="page-header">Książka kucharska</h1>
-            <h2>Konkretny przepis</h2>
+            <h2>{{ przepis.nazwa|upper }}</h2>
         </div>
         <div>
-            <h2>Twój przepis {{ id }}</h2>
+            <h3>Składniki</h3>
+            <div>{{ przepis.skladniki }}</div>
+        </div>
+        <div>
+            <h3>Wykonanie</h3>
+            <div>{{ przepis.wykonanie }}</div>
+        </div>
+        <div>
+            <h3>Źródło</h3>
+            <div>{{ przepis.zrodlo }}</div>
+        </div>
+        <div>
+            <h3>Uwagi</h3>
+            <div>{{ przepis.uwagi }}</div>
         </div>
     </div>
-    {% for przepis in id %}
-        <ul>
-            <li>{{ przepis.id }}</li>
-        </ul>
-    {% endfor %}
 {% endblock %}

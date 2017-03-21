@@ -74,7 +74,7 @@
     </div>
     {% for przepis in dane %}
         <ul>
-            <li>{{ przepis.nazwa }}</li>
+            <li><a href="{{ path('przepisid', { 'id': przepis.id }) }}" >{{ przepis.nazwa }}</a></li>
         </ul>
     {% endfor %}
 {% endblock %}

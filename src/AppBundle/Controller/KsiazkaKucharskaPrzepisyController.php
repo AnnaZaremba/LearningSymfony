@@ -20,9 +20,13 @@ class KsiazkaKucharskaPrzepisyController extends Controller
      */
     public function findAction($id)
     {
-        return array(
-            'id' => $id,
-        );
+        $przepis = $this->getDoctrine()
+            ->getRepository('AppBundle:Przepis')
+            ->find($id);
+
+        return [
+            'przepis' => $przepis
+        ];
     }
 
     /**
