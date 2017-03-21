@@ -46,6 +46,8 @@ class KsiazkaKucharskaKontaktController extends Controller
 
             $em->persist($kontaktBaza);
             $em->flush();
+
+            return $this->redirectToRoute('kontaktmailwyslany');
         }
 
         $find = $this->getDoctrine()
@@ -58,5 +60,16 @@ class KsiazkaKucharskaKontaktController extends Controller
             'kontakt' => $kontakt,
             'find' => $find
         );
+    }
+
+    /**
+     * @return array
+     *
+     * @Route("/kontaktmailwyslany", name="kontaktmailwyslany")
+     * @Template()
+     */
+    public function kontaktMailWyslanyAction()
+    {
+        return [];
     }
 }

@@ -101,7 +101,7 @@ class DaneFormController extends Controller
 
         $form->handleRequest($request);
 
-        if($form->isValid()) {
+        if ($form->isValid()) {
             $daneOsobowe = $this->getDoctrine()
                 ->getRepository('AppBundle:DaneOsobowe')
                 ->find($osoba->getId());
