@@ -2,9 +2,11 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Kontakt;
+use AppBundle\Entity\KontaktBaza;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -27,14 +29,34 @@ class KsiazkaKucharskaKontaktController extends Controller
         $form = $this->createFormBuilder($kontakt)
             ->add('imie', TextType::class)
             ->add('email', TextType::class)
-            ->add('wiadomosc', TextType::class)
+            ->add('temat', TextType::class)
+            ->add('wiadomosc', TextareaType::class)
             ->getForm();
 
         $form->handleRequest($request);
 
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+
+            $kontaktBaza = new KontaktBaza();
+            $kontaktBaza->setImie($kontakt->getImie());
+            $kontaktBaza->setEmail($kontakt->getEmail());
+            $kontaktBaza->setTemat($kontakt->getTemat());
+            $kontaktBaza->setWiadomosc($kontakt->getWiadomosc());
+
+            $em->persist($kontaktBaza);
+            $em->flush();
+        }
+
+        $find = $this->getDoctrine()
+            ->getRepository('AppBundle:KontaktBaza')
+            ->findAll();
+
         return array(
             'form' => $form->createView(),
+            'isValid' => $form->isValid(),
             'kontakt' => $kontakt,
+            'find' => $find
         );
     }
 }

@@ -41,6 +41,34 @@ class Kontakt
      *     maxMessage="Pole nie może mieć więcej niż 128 znaków."
      * )
      */
+    private $temat;
+
+    /**
+     * @return string
+     */
+    public function getTemat()
+    {
+        return $this->temat;
+    }
+
+    /**
+     * @param string $temat
+     */
+    public function setTemat($temat)
+    {
+        $this->temat = $temat;
+    }
+
+    /**
+     * @var string
+     * @Assert\NotBlank(message="Pole nie może być puste.")
+     * @Assert\Length(
+     *     min="2",
+     *     minMessage="Pole nie może mieć mniej niż 2 znaki.",
+     *     max="128",
+     *     maxMessage="Pole nie może mieć więcej niż 128 znaków."
+     * )
+     */
     private $wiadomosc;
 
     /**
