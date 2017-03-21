@@ -15,9 +15,6 @@ use Symfony\Component\HttpFoundation\Request;
 class KsiazkaKucharskaPrzepisyController extends Controller
 {
     /**
-     * @param $id
-     * @return array
-     *
      * @Route("/{id}", name="przepisid", requirements={"id": "\d+"})
      * @Template()
      */
