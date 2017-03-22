@@ -1,7 +1,8 @@
 <?php
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Przepis;
+use AppBundle\Repository\Doctrine\KategoriaRepository;
+use AppBundle\Repository\Doctrine\PrzepiRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -21,14 +22,9 @@ class KsiazkaKucharskaPrzepisyController extends Controller
      */
     public function findAction($id)
     {
-        /** @var Przepis $przepis */
-        $przepis = $this->getDoctrine()
-            ->getRepository('AppBundle:Przepis')
-            ->find($id);
-
         return [
-            'przepis' => $przepis,
-            'kategorie' => $przepis->getKategorie()
+            'przepis' => (new PrzepiRepository($this->getDoctrine()->getManager()))->getOneById($id),
+            'kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName()
         ];
     }
 
@@ -38,18 +34,9 @@ class KsiazkaKucharskaPrzepisyController extends Controller
      */
     public function przepisyAction(Request $request)
     {
-        $dane = $this->getDoctrine()
-            ->getRepository('AppBundle:Przepis')
-            ->findBy([], ['nazwa' => 'ASC']);
-
-        $kategorie = $this->getDoctrine()
-            ->getRepository('AppBundle:Kategoria')
-            ->findBy([], ['nazwa' => 'ASC']);
-
         return [
-            'dane' => $dane,
-            'kategorie' => $kategorie,
+            'przepisy' => (new PrzepiRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
+            'kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName()
         ];
-
     }
 }

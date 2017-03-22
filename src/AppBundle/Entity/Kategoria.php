@@ -23,6 +23,11 @@ class Kategoria
     private $nazwa;
 
     /**
+     * @ORM\Column(type="string")
+     */
+    private $image;
+
+    /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Przepis", inversedBy="kategorie", cascade={"persist"})
      * @ORM\JoinTable(name="przepiskategoria")
      */
@@ -58,6 +63,22 @@ class Kategoria
     public function setNazwa($nazwa)
     {
         $this->nazwa = $nazwa;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
     }
 
     /**

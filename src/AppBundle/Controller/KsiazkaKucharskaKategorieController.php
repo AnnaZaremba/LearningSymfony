@@ -1,7 +1,7 @@
 <?php
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Kategoria;
+use AppBundle\Repository\Doctrine\KategoriaRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -21,14 +21,10 @@ class KsiazkaKucharskaKategorieController extends Controller
      */
     public function findAction($id)
     {
-        /** @var Kategoria $kategoria */
-        $kategoria = $this->getDoctrine()
-            ->getRepository('AppBundle:Kategoria')
-            ->find($id);
-
         return [
-            'kategoria' => $kategoria,
-            'przepisy' => $kategoria->getPrzepisy()
+            'kategoria' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getOneById($id),
+            'przepisy' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getOneById($id)->getPrzepisy(),
+            'kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
         ];
     }
 
@@ -38,75 +34,7 @@ class KsiazkaKucharskaKategorieController extends Controller
      */
     public function kategorieAction(Request $request)
     {
-        $kategorie = $this->getDoctrine()
-            ->getRepository('AppBundle:Kategoria')
-            ->findBy([], ['nazwa' => 'ASC']);
-
-        return [
-            'kategorie' => $kategorie,
+        return ['kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
         ];
-    }
-
-    /**
-     * @Route("/sniadanie", name="sniadanie")
-     * @Template()
-     */
-    public function sniadanieAction(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * @Route("/obiad", name="obiad")
-     * @Template()
-     */
-    public function obiadAction(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * @Route("/kolacja", name="kolacja")
-     * @Template()
-     */
-    public function kolacjaAction(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * @Route("/desery", name="desery")
-     * @Template()
-     */
-    public function deseryAction(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * @Route("/salatki", name="salatki")
-     * @Template()
-     */
-    public function salatkiAction(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * @Route("/pieczywo", name="pieczywo")
-     * @Template()
-     */
-    public function pieczywoAction(Request $request)
-    {
-        return [];
-    }
-
-    /**
-     * @Route("/przekaski", name="przekaski")
-     * @Template()
-     */
-    public function przekaskiAction(Request $request)
-    {
-        return [];
     }
 }

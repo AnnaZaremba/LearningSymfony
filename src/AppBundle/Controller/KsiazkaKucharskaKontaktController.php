@@ -3,6 +3,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Kontakt;
 use AppBundle\Entity\KontaktBaza;
+use AppBundle\Repository\Doctrine\KategoriaRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -58,7 +59,8 @@ class KsiazkaKucharskaKontaktController extends Controller
             'form' => $form->createView(),
             'isValid' => $form->isValid(),
             'kontakt' => $kontakt,
-            'find' => $find
+            'find' => $find,
+            'kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName()
         );
     }
 
@@ -70,6 +72,8 @@ class KsiazkaKucharskaKontaktController extends Controller
      */
     public function kontaktMailWyslanyAction()
     {
-        return [];
+        return [
+            'kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName()
+        ];
     }
 }
