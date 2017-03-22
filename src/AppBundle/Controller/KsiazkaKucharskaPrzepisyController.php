@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Przepis;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -20,12 +21,14 @@ class KsiazkaKucharskaPrzepisyController extends Controller
      */
     public function findAction($id)
     {
+        /** @var Przepis $przepis */
         $przepis = $this->getDoctrine()
             ->getRepository('AppBundle:Przepis')
             ->find($id);
 
         return [
             'przepis' => $przepis,
+            'kategorie' => $przepis->getKategorie()
         ];
     }
 

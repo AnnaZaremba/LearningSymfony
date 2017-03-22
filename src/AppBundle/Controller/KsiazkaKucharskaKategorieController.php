@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Kategoria;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -10,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
  * Class KsiazkaKucharskaKategorieController
  * @package AppBundle\Controller
  *
- * @Route("/ksiazkakucharska")
+ * @Route("/ksiazkakucharska/kategorie")
  */
 class KsiazkaKucharskaKategorieController extends Controller
 {
@@ -20,17 +21,19 @@ class KsiazkaKucharskaKategorieController extends Controller
      */
     public function findAction($id)
     {
+        /** @var Kategoria $kategoria */
         $kategoria = $this->getDoctrine()
             ->getRepository('AppBundle:Kategoria')
             ->find($id);
 
         return [
             'kategoria' => $kategoria,
+            'przepisy' => $kategoria->getPrzepisy()
         ];
     }
 
     /**
-     * @Route("/kategorie", name="kategorie")
+     * @Route("/", name="kategorie")
      * @Template()
      */
     public function kategorieAction(Request $request)

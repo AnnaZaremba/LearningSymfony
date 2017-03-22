@@ -21,7 +21,7 @@ class PrzepisKategoria
     /**
      * @ORM\Column(type="integer")
      */
-    private $idprzepis;
+    private $przepis;
 
     /**
      * @ORM\Column(type="integer")

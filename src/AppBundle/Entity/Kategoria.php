@@ -23,6 +23,12 @@ class Kategoria
     private $nazwa;
 
     /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Przepis", inversedBy="kategorie", cascade={"persist"})
+     * @ORM\JoinTable(name="przepiskategoria")
+     */
+    private $przepisy;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -53,4 +59,22 @@ class Kategoria
     {
         $this->nazwa = $nazwa;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPrzepisy()
+    {
+        return $this->przepisy;
+    }
+
+    /**
+     * @param mixed $przepisy
+     */
+    public function setPrzepisy($przepisy)
+    {
+        $this->przepisy = $przepisy;
+    }
+
+
 }

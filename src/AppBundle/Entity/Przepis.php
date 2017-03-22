@@ -43,6 +43,12 @@ class Przepis
     private $uwagi;
 
     /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Kategoria", mappedBy="przepisy", cascade={"persist"})
+     * @ORM\JoinTable(name="przepiskategoria")
+     */
+    private $kategorie;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -136,6 +142,22 @@ class Przepis
     public function setUwagi($uwagi)
     {
         $this->uwagi = $uwagi;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getKategorie()
+    {
+        return $this->kategorie;
+    }
+
+    /**
+     * @param mixed $kategorie
+     */
+    public function setKategorie($kategorie)
+    {
+        $this->kategorie = $kategorie;
     }
 
 

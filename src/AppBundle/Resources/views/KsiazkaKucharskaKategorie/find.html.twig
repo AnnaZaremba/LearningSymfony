@@ -3,7 +3,9 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div><h1 class="page-header">Książka kucharska</h1>
             <h2>{{ kategoria.nazwa|upper }}</h2>
-            fggggfggffg
+            {% for przepis in przepisy %}
+                <div>{{ przepis.nazwa }}</div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

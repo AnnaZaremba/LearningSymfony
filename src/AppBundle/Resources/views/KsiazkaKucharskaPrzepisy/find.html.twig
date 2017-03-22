@@ -20,5 +20,11 @@
             <h3>Uwagi</h3>
             <div>{{ przepis.uwagi }}</div>
         </div>
+        <div>
+            <h3>Kategorie</h3>
+            {% for kategoria in kategorie %}
+                <div>{{ kategoria.nazwa }}</div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
