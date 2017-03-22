@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Request;
  * Class KsiazkaKucharskaDaniaGlowneController
  * @package AppBundle\Controller
  *
- * @Route("/daniaglowne")
+ * @Route("/ksiazkakucharska/kategoria")
  */
 class KsiazkaKucharskaDaniaGlowneController extends Controller
 {
     /**
-     * @Route("/", name="daniaglowne")
+     * @Route("/daniaglowne", name="daniaglowne")
      * @Template()
      */
     public function daniaglowneAction(Request $request)

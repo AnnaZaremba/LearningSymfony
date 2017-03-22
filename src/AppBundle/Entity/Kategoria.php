@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="kategoria")
@@ -19,11 +21,6 @@ class Kategoria
      * @ORM\Column(type="string")
      */
     private $nazwa;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $opis;
 
     /**
      * @return mixed
@@ -56,22 +53,4 @@ class Kategoria
     {
         $this->nazwa = $nazwa;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getOpis()
-    {
-        return $this->opis;
-    }
-
-    /**
-     * @param mixed $opis
-     */
-    public function setOpis($opis)
-    {
-        $this->opis = $opis;
-    }
-
-
 }

@@ -25,7 +25,7 @@ class KsiazkaKucharskaPrzepisyController extends Controller
             ->find($id);
 
         return [
-            'przepis' => $przepis
+            'przepis' => $przepis,
         ];
     }
 
@@ -39,8 +39,14 @@ class KsiazkaKucharskaPrzepisyController extends Controller
             ->getRepository('AppBundle:Przepis')
             ->findBy([], ['nazwa' => 'ASC']);
 
-        return array(
+        $kategorie = $this->getDoctrine()
+            ->getRepository('AppBundle:Kategoria')
+            ->findBy([], ['nazwa' => 'ASC']);
+
+        return [
             'dane' => $dane,
-        );
+            'kategorie' => $kategorie,
+        ];
+
     }
 }

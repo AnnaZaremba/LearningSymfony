@@ -72,9 +72,20 @@
             <h4>PRZEKĄSKI</h4>
         </div>
     </div>
-    {% for przepis in dane %}
-        <ul>
-            <li><a href="{{ path('przepisid', { 'id': przepis.id }) }}" >{{ przepis.nazwa }}</a></li>
-        </ul>
-    {% endfor %}
+    <div class="row>">
+        <h2>Przepisy</h2>
+        {% for przepis in dane %}
+            <ul>
+                <li><a href="{{ path('przepisid', { 'id': przepis.id }) }}">{{ przepis.nazwa }}</a></li>
+            </ul>
+        {% endfor %}
+    </div>
+    <div class="row>">
+        <h2>Kategorie</h2>
+        {% for kategoria in kategorie %}
+            <ul>
+                <li><a href="{{ path('kategoriaid', { 'id': kategoria.id }) }}">{{ kategoria.nazwa }}</a></li>
+            </ul>
+        {% endfor %}
+    </div>
 {% endblock %}

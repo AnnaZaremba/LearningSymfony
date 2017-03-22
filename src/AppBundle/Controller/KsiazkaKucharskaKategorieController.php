@@ -14,9 +14,38 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class KsiazkaKucharskaKategorieController extends Controller
 {
+    /**
+     * @Route("/{id}", name="kategoriaid", requirements={"id": "\d+"})
+     * @Template()
+     */
+    public function findAction($id)
+    {
+        $kategoria = $this->getDoctrine()
+            ->getRepository('AppBundle:Kategoria')
+            ->find($id);
+
+        return [
+            'kategoria' => $kategoria,
+        ];
+    }
 
     /**
-     * @Route("sniadanie", name="sniadanie")
+     * @Route("/kategorie", name="kategorie")
+     * @Template()
+     */
+    public function kategorieAction(Request $request)
+    {
+        $kategorie = $this->getDoctrine()
+            ->getRepository('AppBundle:Kategoria')
+            ->findBy([], ['nazwa' => 'ASC']);
+
+        return [
+            'kategorie' => $kategorie,
+        ];
+    }
+
+    /**
+     * @Route("/sniadanie", name="sniadanie")
      * @Template()
      */
     public function sniadanieAction(Request $request)

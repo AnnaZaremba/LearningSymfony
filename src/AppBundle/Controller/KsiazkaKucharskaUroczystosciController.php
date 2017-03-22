@@ -10,12 +10,12 @@ use Symfony\Component\HttpFoundation\Request;
  * Class UroczystosciController
  * @package AppBundle\Controller
  *
- * @Route("/ksiazkakucharska/uroczystosci")
+ * @Route("/ksiazkakucharska/kategoria")
  */
 class KsiazkaKucharskaUroczystosciController extends Controller
 {
     /**
-     * @Route("/", name="uroczystosci")
+     * @Route("/uroczystosci", name="uroczystosci")
      * @Template()
      */
     public function uroczystosciAction(Request $request)
