@@ -9,13 +9,6 @@
                     </ul>
                 {% endfor %}
             </div>
-            <div>
-                {% for przepis in przepisy %}
-                    {% block przepis %}
-                        {% include('::przepis.html.twig') %}
-                    {% endblock %}
-                {% endfor %}
-            </div>
         </div>
     </div>
 {% endblock %}
