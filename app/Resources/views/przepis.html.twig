@@ -1,0 +1,29 @@
+{% block przepis %}
+<div class="row">
+    {% for przepis in przepisy %}
+        <h2>{{ przepis.nazwa|upper }} - block</h2>
+        <div>
+            <h3>Składniki</h3>
+            <div>{{ przepis.skladniki }}</div>
+        </div>
+        <div>
+            <h3>Wykonanie</h3>
+            <div>{{ przepis.wykonanie }}</div>
+        </div>
+        <div>
+            <h3>Źródło</h3>
+            <div>{{ przepis.zrodlo }}</div>
+        </div>
+        <div>
+            <h3>Uwagi</h3>
+            <div>{{ przepis.uwagi }}</div>
+        </div>
+        <div>
+            <h3>Kategorie</h3>
+            {% for kategoria in przepis.kategorie %}
+                <div>{{ kategoria.nazwa }}</div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -5,7 +5,6 @@ use AppBundle\Repository\Doctrine\KategoriaRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class KsiazkaKucharskaKategorieController
@@ -25,16 +24,6 @@ class KsiazkaKucharskaKategorieController extends Controller
             'kategoria' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getOneById($id),
             'przepisy' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getOneById($id)->getPrzepisy(),
             'kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
-        ];
-    }
-
-    /**
-     * @Route("/", name="kategorie")
-     * @Template()
-     */
-    public function kategorieAction(Request $request)
-    {
-        return ['kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
         ];
     }
 }

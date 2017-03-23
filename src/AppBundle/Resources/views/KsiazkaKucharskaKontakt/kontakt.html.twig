@@ -1,27 +1,28 @@
 {% extends '::ksiazkakucharska.html.twig' %}
 {% block container %}
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1 class="page-header">Książka kucharska</h1>
-    <div class="starter-template">
-        <h2>KONTAKT</h2>
-    </div>
-    {{ form_start(form, { 'attr': { 'novalidate': 'novalidate'}}) }}
-    <div>
-        <div>
-            {{ form_widget(form.imie, {'attr': {'placeholder': 'Imię *', 'class': 'form-control'}}) }}
-            <div style="color: red; ">{{ form_errors(form.imie) }}</div>
-            {{ form_widget(form.email, {'attr': {'placeholder': 'E-mail *', 'class': 'form-control'}}) }}
-            <div style="color: red; ">{{ form_errors(form.email) }}</div>
-            {{ form_widget(form.temat, {'attr': {'placeholder': 'Temat *', 'class': 'form-control'}}) }}
-            <div style="color: red; ">{{ form_errors(form.temat) }}</div>
-            {{ form_widget(form.wiadomosc, {'attr': {'placeholder': 'Wiadomość *', 'class': 'form-control'}}) }}
-            <div style="color: red; ">{{ form_errors(form.wiadomosc) }}</div>
+        <h1 class="page-header">Książka kucharska</h1>
+        <div class="starter-template">
+            <h2>KONTAKT</h2>
         </div>
+        {{ form_start(form, { 'attr': { 'novalidate': 'novalidate'}}) }}
         <div>
-            <h3>
-                <button type="submit" class="btn btn-primary btn-sm">Wyślij wiadomość</button>
-            </h3>
+            <div>
+                {{ form_widget(form.imie, {'attr': {'placeholder': 'Imię *', 'class': 'form-control'}}) }}
+                <div style="color: red; ">{{ form_errors(form.imie) }}</div>
+                {{ form_widget(form.email, {'attr': {'placeholder': 'E-mail *', 'class': 'form-control'}}) }}
+                <div style="color: red; ">{{ form_errors(form.email) }}</div>
+                {{ form_widget(form.temat, {'attr': {'placeholder': 'Temat *', 'class': 'form-control'}}) }}
+                <div style="color: red; ">{{ form_errors(form.temat) }}</div>
+                {{ form_widget(form.wiadomosc, {'attr': {'placeholder': 'Wiadomość *', 'class': 'form-control'}}) }}
+                <div style="color: red; ">{{ form_errors(form.wiadomosc) }}</div>
+            </div>
+            <div>
+                <h3>
+                    <button type="submit" class="btn btn-primary btn-sm">Wyślij wiadomość</button>
+                </h3>
+            </div>
+            {{ form_end(form) }}
         </div>
-        {{ form_end(form) }}
     </div>
 {% endblock %}
