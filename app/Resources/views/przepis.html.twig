@@ -10,7 +10,7 @@
             </div>
             <div>
                 <h3>Wykonanie</h3>
-                <div class="text-justify text">{{ przepis.wykonanie }}</div>
+                <div class="text-justify text">{{ przepis.wykonanie|nl2br }}</div>
             </div>
             <div>
                 <h3>Źródło</h3>
@@ -23,7 +23,8 @@
             <div>
                 <h3>Kategorie</h3>
                 {% for kategoria in przepis.kategorie %}
-                    <div><a href="{{ path('kategoriaid', { 'id': kategoria.id }) }}">{{ kategoria.nazwa }}</a>
+                    <div>
+                        <a href="{{ path('kategoriaid', { 'id': kategoria.id }) }}">{{ kategoria.nazwa }}</a>
                     </div>
                 {% endfor %}
             </div>

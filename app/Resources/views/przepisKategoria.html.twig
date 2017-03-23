@@ -3,11 +3,13 @@
         <div><h1 class="page-header">Książka kucharska</h1>
             <h2>{{ kategoria.nazwa|upper }}</h2>
             <div class="row">
-                {% for przepis in przepisy %}
-                    <ul>
+                <ul class="list-unstyled">
+                    {% for przepis in przepisy %}
+
                         <li><a href="{{ path('przepisid', { 'id': przepis.id }) }}">{{ przepis.nazwa }}</a></li>
-                    </ul>
-                {% endfor %}
+
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
