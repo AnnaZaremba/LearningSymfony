@@ -1,7 +1,8 @@
 {% block przepis %}
 <div class="row">
-    {% for przepis in przepisy %}
-        <h2>{{ przepis.nazwa|upper }} - block</h2>
+        <div>
+            <h2>{{ przepis.nazwa|upper }}</h2>
+        </div>
         <div>
             <h3>Składniki</h3>
             <div>{{ przepis.skladniki }}</div>
@@ -24,6 +25,5 @@
                 <div>{{ kategoria.nazwa }}</div>
             {% endfor %}
         </div>
-    {% endfor %}
 </div>
 {% endblock %}

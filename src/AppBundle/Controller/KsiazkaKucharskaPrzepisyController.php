@@ -24,7 +24,8 @@ class KsiazkaKucharskaPrzepisyController extends Controller
     {
         return [
             'przepis' => (new PrzepiRepository($this->getDoctrine()->getManager()))->getOneById($id),
-            'kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName()
+            'kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
+            'przepisy' => (new PrzepiRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
         ];
     }
 

@@ -1,17 +1,21 @@
 {% block przepisKategoria %}
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <div><h1 class="page-header">Książka kucharska</h1>
-        <h2>{{ kategoria.nazwa|upper }} - block</h2>
-        <div class="row">
-            {% for przepis in przepisy %}
-                <ul>
-                    <li><a href="{{ path('przepisid', { 'id': przepis.id }) }}">{{ przepis.nazwa }}</a></li>
-                </ul>
-            {% endfor %}
-            {% block menu %}
-                {% include('::przepis.html.twig') %}
-            {% endblock %}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div><h1 class="page-header">Książka kucharska</h1>
+            <h2>{{ kategoria.nazwa|upper }}</h2>
+            <div class="row">
+                {% for przepis in przepisy %}
+                    <ul>
+                        <li><a href="{{ path('przepisid', { 'id': przepis.id }) }}">{{ przepis.nazwa }}</a></li>
+                    </ul>
+                {% endfor %}
+            </div>
+            <div>
+                {% for przepis in przepisy %}
+                    {% block przepis %}
+                        {% include('::przepis.html.twig') %}
+                    {% endblock %}
+                {% endfor %}
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}
