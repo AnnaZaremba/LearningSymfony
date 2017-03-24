@@ -53,5 +53,6 @@ Alt Ins - generuje get i set controller...
 Alt Enter - podpowiada np. importuje klasy
 Ctrl Alt L - formatowanie
 Ctrl Spacja - pokazuje dostępne metody
+Ctrl B - wyswietlenie plików w których używa się danej klasy
 ```
 
