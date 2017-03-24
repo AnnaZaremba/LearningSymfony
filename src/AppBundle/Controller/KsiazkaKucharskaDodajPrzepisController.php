@@ -1,8 +1,8 @@
 <?php
 namespace AppBundle\Controller;
 
-use AppBundle\Form\Model\Kontakt;
-use AppBundle\Entity\KontaktBaza;
+use AppBundle\Form\Model\Przepis;
+use AppBundle\Entity\Przepis as PrzepisEntity;
 use AppBundle\Repository\Doctrine\KategoriaRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -25,13 +25,14 @@ class KsiazkaKucharskaDodajPrzepisController extends Controller
      */
     public function dodajPrzepisAction(Request $request)
     {
-        $kontakt = new Kontakt();
+        $przepis = new Przepis();
 
-        $form = $this->createFormBuilder($kontakt)
-            ->add('imie', TextType::class)
-            ->add('email', TextType::class)
-            ->add('temat', TextType::class)
-            ->add('wiadomosc', TextareaType::class)
+        $form = $this->createFormBuilder($przepis)
+            ->add('nazwa', TextType::class)
+            ->add('skladniki', TextareaType::class)
+            ->add('wykonanie', TextareaType::class)
+            ->add('zrodlo', TextType::class)
+            ->add('uwagi', TextType::class)
             ->getForm();
 
         $form->handleRequest($request);
@@ -39,26 +40,27 @@ class KsiazkaKucharskaDodajPrzepisController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
-            $kontaktBaza = new KontaktBaza();
-            $kontaktBaza->setImie($kontakt->getImie());
-            $kontaktBaza->setEmail($kontakt->getEmail());
-            $kontaktBaza->setTemat($kontakt->getTemat());
-            $kontaktBaza->setWiadomosc($kontakt->getWiadomosc());
+            $przepisBaza = new PrzepisEntity();
+            $przepisBaza->setNazwa($przepis->getNazwa());
+            $przepisBaza->setSkladniki($przepis->getSkladniki());
+            $przepisBaza->setWykonanie($przepis->getWykonanie());
+            $przepisBaza->setZrodlo($przepis->getZrodlo());
+            $przepisBaza->setUwagi($przepis->getUwagi());
 
-            $em->persist($kontaktBaza);
+            $em->persist($przepisBaza);
             $em->flush();
 
-            return $this->redirectToRoute('przepisDodany');
+            return $this->redirectToRoute('przepisdodany');
         }
 
         $find = $this->getDoctrine()
-            ->getRepository('AppBundle:KontaktBaza')
+            ->getRepository('AppBundle:Przepis')
             ->findAll();
 
         return array(
             'form' => $form->createView(),
             'isValid' => $form->isValid(),
-            'kontakt' => $kontakt,
+            'przepis' => $przepis,
             'find' => $find,
             'kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName()
         );

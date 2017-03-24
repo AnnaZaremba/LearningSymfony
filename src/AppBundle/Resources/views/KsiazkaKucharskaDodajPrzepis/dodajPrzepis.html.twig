@@ -8,18 +8,20 @@
         {{ form_start(form, { 'attr': { 'novalidate': 'novalidate'}}) }}
         <div>
             <div>
-                {{ form_widget(form.imie, {'attr': {'placeholder': 'Imię *', 'class': 'form-control'}}) }}
-                <div style="color: red; ">{{ form_errors(form.imie) }}</div>
-                {{ form_widget(form.email, {'attr': {'placeholder': 'E-mail *', 'class': 'form-control'}}) }}
-                <div style="color: red; ">{{ form_errors(form.email) }}</div>
-                {{ form_widget(form.temat, {'attr': {'placeholder': 'Temat *', 'class': 'form-control'}}) }}
-                <div style="color: red; ">{{ form_errors(form.temat) }}</div>
-                {{ form_widget(form.wiadomosc, {'attr': {'placeholder': 'Wiadomość *', 'class': 'form-control'}}) }}
-                <div style="color: red; ">{{ form_errors(form.wiadomosc) }}</div>
+                {{ form_widget(form.nazwa, {'attr': {'placeholder': 'Nazwa *', 'class': 'form-control'}}) }}
+                <div style="color: red; ">{{ form_errors(form.nazwa) }}</div>
+                {{ form_widget(form.skladniki, {'attr': {'placeholder': 'Składniki *', 'class': 'form-control'}}) }}
+                <div style="color: red; ">{{ form_errors(form.skladniki) }}</div>
+                {{ form_widget(form.wykonanie, {'attr': {'placeholder': 'Wykonanie *', 'class': 'form-control'}}) }}
+                <div style="color: red; ">{{ form_errors(form.wykonanie) }}</div>
+                {{ form_widget(form.zrodlo, {'attr': {'placeholder': 'Źródło *', 'class': 'form-control'}}) }}
+                <div style="color: red; ">{{ form_errors(form.zrodlo) }}</div>
+                {{ form_widget(form.uwagi, {'attr': {'placeholder': 'Uwagi *', 'class': 'form-control'}}) }}
+                <div style="color: red; ">{{ form_errors(form.uwagi) }}</div>
             </div>
             <div>
                 <h3>
-                    <button type="submit" class="btn btn-primary btn-sm">Wyślij wiadomość</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Dodaj przepis</button>
                 </h3>
             </div>
             {{ form_end(form) }}
