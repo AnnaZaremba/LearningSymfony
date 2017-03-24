@@ -2,7 +2,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Form\Model\Kontakt;
-use AppBundle\Entity\KontaktBaza;
+use AppBundle\Entity\Kontakt as KontaktBaza;
 use AppBundle\Repository\Doctrine\KategoriaRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -52,7 +52,7 @@ class KsiazkaKucharskaKontaktController extends Controller
         }
 
         $find = $this->getDoctrine()
-            ->getRepository('AppBundle:KontaktBaza')
+            ->getRepository('AppBundle:Kontakt')
             ->findAll();
 
         return array(

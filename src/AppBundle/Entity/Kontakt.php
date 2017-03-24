@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="ksiazkakucharskakontakt")
  */
-class KontaktBaza
+class Kontakt
 {
     /**
      * @ORM\Column(type="integer")
