@@ -15,12 +15,12 @@ use Symfony\Component\HttpFoundation\Request;
  * Class KsiazkaKucharskaPrzepisyController
  * @package AppBundle\Controller
  *
- * @Route("/ksiazkakucharska")
+ * @Route("/ksiazkakucharska/dodajprzepis")
  */
 class KsiazkaKucharskaDodajPrzepisController extends Controller
 {
     /**
-     * @Route("/dodajprzepis", name="dodajprzepis")
+     * @Route("/", name="dodajprzepis")
      * @Template()
      */
     public function dodajPrzepisAction(Request $request)

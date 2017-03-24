@@ -5,10 +5,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class Kategoria
 {
-    /**
-     * @var string
-     * @Assert\NotBlank(message="Pole nie może być puste.")
-     */
     private $id;
 
     /**

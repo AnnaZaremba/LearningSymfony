@@ -19,6 +19,36 @@
                 </h3>
             </div>
             {{ form_end(form) }}
+
+            <fieldset>
+                <legend>Lista kategorii</legend>
+                <table border="6">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nazwa</th>
+                        <th>Zdjęcie</th>
+                    </tr>
+                    {% for kategoria in kategorie %}
+                        <tr>
+                            <td>{{ kategoria.id }}</td>
+                            <td>{{ kategoria.nazwa }}</td>
+                            <td>{{ kategoria.image }}</td>
+                            <td align="center" colspan="2">
+                                <form method="post" action="{{ path('edytujkategorie') }}">
+                                    <input type="hidden" name="id" value="{{ kategoria.id }}">
+                                    <input type="submit" value="edytuj">
+                                </form>
+                            </td>
+                            <td align="center" colspan="2">
+                                <form method="post" action="{{ path('usunkategorie') }}">
+                                    <input type="hidden" name="id" value="{{ kategoria.id }}">
+                                    <input type="submit" value="usuń">
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </fieldset>
         </div>
     </div>
 {% endblock %}
