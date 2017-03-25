@@ -1,8 +1,8 @@
 <?php
 namespace AppBundle\Controller;
 
-use AppBundle\Form\Model\Kategoria;
 use AppBundle\Entity\Kategoria as KategoriaEntity;
+use AppBundle\Form\Model\Kategoria;
 use AppBundle\Repository\Doctrine\KategoriaRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -101,14 +101,14 @@ class KsiazkaKucharskaDodajKategorieController extends Controller
         $kategoria = new Kategoria();
 
         if (isset($id)) {
-            /** @var KategoriaEntity $kategoriabaza */
-            $kategoriabaza = $this->getDoctrine()
+            /** @var KategoriaEntity $kategoriaBaza */
+            $kategoriaBaza = $this->getDoctrine()
                 ->getRepository('AppBundle:Kategoria')
                 ->find($id);
 
-            $kategoria->setId($kategoriabaza->getId());
-            $kategoria->setNazwa($kategoriabaza->getNazwa());
-            $kategoria->setImage($kategoriabaza->getImage());
+            $kategoria->setId($kategoriaBaza->getId());
+            $kategoria->setNazwa($kategoriaBaza->getNazwa());
+            $kategoria->setImage($kategoriaBaza->getImage());
         }
 
         $form = $this->createFormBuilder($kategoria)
@@ -120,14 +120,14 @@ class KsiazkaKucharskaDodajKategorieController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $kategoriabaza = $this->getDoctrine()
+            $kategoriaBaza = $this->getDoctrine()
                 ->getRepository('AppBundle:Kategoria')
                 ->find($kategoria->getId());
 
             $em = $this->getDoctrine()->getManager();
 
-            $kategoriabaza->setNazwa($kategoria->getNazwa());
-            $kategoriabaza->setImage($kategoria->getImage());
+            $kategoriaBaza->setNazwa($kategoria->getNazwa());
+            $kategoriaBaza->setImage($kategoria->getImage());
 
             $em->flush();
 
