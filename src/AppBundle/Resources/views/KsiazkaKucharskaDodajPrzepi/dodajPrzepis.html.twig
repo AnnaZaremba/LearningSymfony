@@ -18,6 +18,8 @@
                 <div style="color: red; ">{{ form_errors(form.zrodlo) }}</div>
                 {{ form_widget(form.uwagi, {'attr': {'placeholder': 'Uwagi *', 'class': 'form-control'}}) }}
                 <div style="color: red; ">{{ form_errors(form.uwagi) }}</div>
+                {{ form_widget(form.kategorie, {'attr': {'placeholder': 'Uwagi *', 'class': 'form-control'}}) }}
+                <div style="color: red; ">{{ form_errors(form.kategorie) }}</div>
             </div>
             <div>
                 <h3>
@@ -30,12 +32,13 @@
                 <legend>Lista kategorii</legend>
                 <table border="6">
                     <tr>
-                        <th>Id</th>
+                        <th width="50">Id</th>
                         <th>Nazwa</th>
-                        <th>Składniki</th>
-                        <th>Wykonanie</th>
-                        <th>Źródło</th>
-                        <th>Uwagi</th>
+                        <th width="200">Składniki</th>
+                        <th width="400" style="text-justify: auto">Wykonanie</th>
+                        <th width="200">Źródło</th>
+                        <th width="50">Uwagi</th>
+                        <th>Kategoria</th>
                     </tr>
                     {% for przepis in przepisy %}
                         <tr>
@@ -45,6 +48,11 @@
                             <td>{{ przepis.wykonanie }}</td>
                             <td>{{ przepis.zrodlo }}</td>
                             <td>{{ przepis.uwagi }}</td>
+                            <td>
+                                {% for kategoria in przepis.kategorie %}
+                                {{ kategoria.nazwa }}
+                                {% endfor %}
+                            </td>
                             <td align="center" colspan="2">
                                 <form method="post" action="{{ path('edytujprzepis') }}">
                                     <input type="hidden" name="id" value="{{ przepis.id }}">

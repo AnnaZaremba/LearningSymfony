@@ -35,7 +35,7 @@ class KsiazkaKucharskaDodajKategorieController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
             $kategoriaBaza = new KategoriaEntity();
@@ -119,7 +119,7 @@ class KsiazkaKucharskaDodajKategorieController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $kategoriaBaza = $this->getDoctrine()
                 ->getRepository('AppBundle:Kategoria')
                 ->find($kategoria->getId());

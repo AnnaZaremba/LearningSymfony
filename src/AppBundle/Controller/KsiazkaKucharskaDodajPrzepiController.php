@@ -3,14 +3,12 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Przepis as PrzepisEntity;
 use AppBundle\Form\Model\Przepis;
+use AppBundle\Form\Type\PrzepisType;
 use AppBundle\Repository\Doctrine\KategoriaRepository;
 use AppBundle\Repository\Doctrine\PrzepiRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -28,18 +26,10 @@ class KsiazkaKucharskaDodajPrzepiController extends Controller
     public function dodajPrzepisAction(Request $request)
     {
         $przepis = new Przepis();
-
-        $form = $this->createFormBuilder($przepis)
-            ->add('nazwa', TextType::class)
-            ->add('skladniki', TextareaType::class)
-            ->add('wykonanie', TextareaType::class)
-            ->add('zrodlo', TextType::class)
-            ->add('uwagi', TextType::class)
-            ->getForm();
-
+        $form = $this->createForm(PrzepisType::class, $przepis);
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
             $przepisBaza = new PrzepisEntity();
@@ -48,6 +38,7 @@ class KsiazkaKucharskaDodajPrzepiController extends Controller
             $przepisBaza->setWykonanie($przepis->getWykonanie());
             $przepisBaza->setZrodlo($przepis->getZrodlo());
             $przepisBaza->setUwagi($przepis->getUwagi());
+            $przepisBaza->setKategorie($przepis->getKategorie());
 
             $em->persist($przepisBaza);
             $em->flush();
@@ -61,7 +52,6 @@ class KsiazkaKucharskaDodajPrzepiController extends Controller
 
         return array(
             'form' => $form->createView(),
-            'isValid' => $form->isValid(),
             'przepis' => $przepis,
             'find' => $find,
             'kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
@@ -120,20 +110,14 @@ class KsiazkaKucharskaDodajPrzepiController extends Controller
             $przepis->setWykonanie($przepisBaza->getWykonanie());
             $przepis->setZrodlo($przepisBaza->getZrodlo());
             $przepis->setUwagi($przepisBaza->getUwagi());
+            $przepis->setKategorie($przepisBaza->getKategorie());
         }
 
-        $form = $this->createFormBuilder($przepis)
-            ->add('id', HiddenType::class)
-            ->add('nazwa', TextType::class)
-            ->add('skladniki', TextareaType::class)
-            ->add('wykonanie', TextareaType::class)
-            ->add('zrodlo', TextType::class)
-            ->add('uwagi', TextType::class)
-            ->getForm();
+        $form = $this->createForm(PrzepisType::class, $przepis);
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $przepisBaza = $this->getDoctrine()
                 ->getRepository('AppBundle:Przepis')
                 ->find($przepis->getId());
@@ -145,7 +129,9 @@ class KsiazkaKucharskaDodajPrzepiController extends Controller
             $przepisBaza->setWykonanie($przepis->getWykonanie());
             $przepisBaza->setZrodlo($przepis->getZrodlo());
             $przepisBaza->setUwagi($przepis->getUwagi());
+            $przepisBaza->setKategorie($przepis->getKategorie());
 
+            $em->persist($przepisBaza);
             $em->flush();
 
             return $this->redirectToRoute("dodajprzepis");

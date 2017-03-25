@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Form\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class Przepis
@@ -36,6 +37,11 @@ class Przepis
      * @Assert\NotBlank(message="Pole nie może być puste.")
      */
     private $uwagi;
+
+    /**
+     * @var ArrayCollection
+     */
+    private $kategorie;
 
     /**
      * @return mixed
@@ -133,5 +139,19 @@ class Przepis
         $this->uwagi = $uwagi;
     }
 
+    /**
+     * @return ArrayCollection
+     */
+    public function getKategorie()
+    {
+        return $this->kategorie;
+    }
 
+    /**
+     * @param ArrayCollection $kategorie
+     */
+    public function setKategorie($kategorie)
+    {
+        $this->kategorie = $kategorie;
+    }
 }

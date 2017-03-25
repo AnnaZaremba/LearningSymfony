@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -47,6 +48,14 @@ class Przepis
      * @ORM\JoinTable(name="przepiskategoria")
      */
     private $kategorie;
+
+    /**
+     * Przepis constructor.
+     */
+    public function __construct()
+    {
+        $this->kategorie = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -153,9 +162,9 @@ class Przepis
     }
 
     /**
-     * @param mixed $kategorie
+     * @param ArrayCollection $kategorie
      */
-    public function setKategorie($kategorie)
+    public function setKategorie(ArrayCollection $kategorie)
     {
         $this->kategorie = $kategorie;
     }
