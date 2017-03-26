@@ -3,13 +3,11 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Kategoria as KategoriaEntity;
 use AppBundle\Form\Model\Kategoria;
+use AppBundle\Form\Type\KategoriaType;
 use AppBundle\Repository\Doctrine\KategoriaRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -28,22 +26,12 @@ class KsiazkaKucharskaDodajKategorieController extends Controller
     {
         $kategoria = new Kategoria();
 
-        $form = $this->createFormBuilder($kategoria)
-            ->add('nazwa', TextType::class)
-            ->add('image', TextareaType::class)
-            ->getForm();
+        $form = $this->createForm(KategoriaType::class, $kategoria);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-
-            $kategoriaBaza = new KategoriaEntity();
-            $kategoriaBaza->setNazwa($kategoria->getNazwa());
-            $kategoriaBaza->setImage($kategoria->getImage());
-
-            $em->persist($kategoriaBaza);
-            $em->flush();
+            (new KategoriaRepository($this->getDoctrine()->getManager()))->save($kategoria);
 
             return $this->redirectToRoute('kategoriadodana');
         }
@@ -81,13 +69,7 @@ class KsiazkaKucharskaDodajKategorieController extends Controller
     {
         $id = $request->get('id');
 
-        $kategoriaBaza = $this->getDoctrine()
-            ->getRepository('AppBundle:Kategoria')
-            ->find($id);
-
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($kategoriaBaza);
-        $em->flush();
+        (new KategoriaRepository($this->getDoctrine()->getManager()))->delete($id);
 
         return $this->redirectToRoute("dodajkategorie");
     }
@@ -111,25 +93,13 @@ class KsiazkaKucharskaDodajKategorieController extends Controller
             $kategoria->setImage($kategoriaBaza->getImage());
         }
 
-        $form = $this->createFormBuilder($kategoria)
-            ->add('id', HiddenType::class)
-            ->add('nazwa', TextType::class)
-            ->add('image', TextType::class)
-            ->getForm();
+        $form = $this->createForm(KategoriaType::class, $kategoria);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $kategoriaBaza = $this->getDoctrine()
-                ->getRepository('AppBundle:Kategoria')
-                ->find($kategoria->getId());
 
-            $em = $this->getDoctrine()->getManager();
-
-            $kategoriaBaza->setNazwa($kategoria->getNazwa());
-            $kategoriaBaza->setImage($kategoria->getImage());
-
-            $em->flush();
+            (new KategoriaRepository($this->getDoctrine()->getManager()))->update($kategoria);
 
             return $this->redirectToRoute("dodajkategorie");
         }

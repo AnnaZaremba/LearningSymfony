@@ -69,13 +69,7 @@ class KsiazkaKucharskaDodajPrzepiController extends Controller
     {
         $id = $request->get('id');
 
-        $przepisBaza = $this->getDoctrine()
-            ->getRepository('AppBundle:Przepis')
-            ->find($id);
-
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($przepisBaza);
-        $em->flush();
+        (new PrzepiRepository($this->getDoctrine()->getManager()))->delete($id);
 
         return $this->redirectToRoute("dodajprzepis");
     }

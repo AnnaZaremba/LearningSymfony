@@ -44,13 +44,13 @@
                         <tr>
                             <td>{{ przepis.id }}</td>
                             <td>{{ przepis.nazwa }}</td>
-                            <td>{{ przepis.skladniki }}</td>
+                            <td>{{ przepis.skladniki|nl2br }}</td>
                             <td>{{ przepis.wykonanie }}</td>
                             <td>{{ przepis.zrodlo }}</td>
                             <td>{{ przepis.uwagi }}</td>
                             <td>
                                 {% for kategoria in przepis.kategorie %}
-                                {{ kategoria.nazwa }}
+                                {{ kategoria.nazwa|nl2br }}
                                 {% endfor %}
                             </td>
                             <td align="center" colspan="2">
