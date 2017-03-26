@@ -30,18 +30,8 @@ class KsiazkaKucharskaDodajPrzepiController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
 
-            $przepisBaza = new PrzepisEntity();
-            $przepisBaza->setNazwa($przepis->getNazwa());
-            $przepisBaza->setSkladniki($przepis->getSkladniki());
-            $przepisBaza->setWykonanie($przepis->getWykonanie());
-            $przepisBaza->setZrodlo($przepis->getZrodlo());
-            $przepisBaza->setUwagi($przepis->getUwagi());
-            $przepisBaza->setKategorie($przepis->getKategorie());
-
-            $em->persist($przepisBaza);
-            $em->flush();
+            (new PrzepiRepository($this->getDoctrine()->getManager()))->save($przepis);
 
             return $this->redirectToRoute('przepisdodany');
         }
@@ -118,21 +108,8 @@ class KsiazkaKucharskaDodajPrzepiController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $przepisBaza = $this->getDoctrine()
-                ->getRepository('AppBundle:Przepis')
-                ->find($przepis->getId());
 
-            $em = $this->getDoctrine()->getManager();
-
-            $przepisBaza->setNazwa($przepis->getNazwa());
-            $przepisBaza->setSkladniki($przepis->getSkladniki());
-            $przepisBaza->setWykonanie($przepis->getWykonanie());
-            $przepisBaza->setZrodlo($przepis->getZrodlo());
-            $przepisBaza->setUwagi($przepis->getUwagi());
-            $przepisBaza->setKategorie($przepis->getKategorie());
-
-            $em->persist($przepisBaza);
-            $em->flush();
+            (new PrzepiRepository($this->getDoctrine()->getManager()))->update($przepis);
 
             return $this->redirectToRoute("dodajprzepis");
         }
