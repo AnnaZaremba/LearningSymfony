@@ -32,7 +32,6 @@ class KsiazkaKucharskaDodajPrzepiController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             (new PrzepiRepository($this->getDoctrine()->getManager()))->save($przepis);
-
             return $this->redirectToRoute('przepisdodany');
         }
 

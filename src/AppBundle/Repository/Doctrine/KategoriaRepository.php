@@ -9,7 +9,6 @@
 namespace AppBundle\Repository\Doctrine;
 
 use AppBundle\Entity\Kategoria as KategoriaEntity;
-use AppBundle\Entity\Kategoria;
 
 class KategoriaRepository extends DoctrineRepository
 {

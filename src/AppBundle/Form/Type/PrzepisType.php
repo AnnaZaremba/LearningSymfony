@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Form\Type;
 
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -24,6 +25,11 @@ class PrzepisType extends AbstractType
                 'choice_label' => 'nazwa',
                 'multiple' => true,
                 'expanded' => true,
+                'query_builder' => function(EntityRepository $er) {
+                    return $er->createQueryBuilder('u')
+                        ->groupBy('u.id')
+                        ->orderBy('u.nazwa', 'ASC');
+                }
             ]);
     }
 }
