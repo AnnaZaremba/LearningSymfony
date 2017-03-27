@@ -25,6 +25,7 @@ class PrzepisType extends AbstractType
                 'choice_label' => 'nazwa',
                 'multiple' => true,
                 'expanded' => true,
+                'by_reference' => true,
                 'query_builder' => function(EntityRepository $er) {
                     return $er->createQueryBuilder('u')
                         ->groupBy('u.id')

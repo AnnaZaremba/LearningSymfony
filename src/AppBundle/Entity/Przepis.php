@@ -169,5 +169,10 @@ class Przepis
         $this->kategorie = $kategorie;
     }
 
+    public function addKategoria(Kategoria $kategoria) {
+        $kategoria->addPrzepis($this);
+        $this->kategorie[] = $kategoria;
+    }
+
 
 }
