@@ -59,7 +59,12 @@ class PrzepiRepository extends DoctrineRepository
         $przepisBaza->setWykonanie($przepis->getWykonanie());
         $przepisBaza->setZrodlo($przepis->getZrodlo());
         $przepisBaza->setUwagi($przepis->getUwagi());
-        $przepisBaza->setKategorie($przepis->getKategorie());
+//        $przepisBaza->setKategorie($przepis->getKategorie());
+
+        /** @var Kategoria $kategoria */
+        foreach ($przepis->getKategorie() as $kategoria) {
+            $przepisBaza->addKategoria($kategoria);
+        }
 
         $em->persist($przepisBaza);
         $em->flush();

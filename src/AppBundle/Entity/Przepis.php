@@ -174,5 +174,8 @@ class Przepis
         $this->kategorie[] = $kategoria;
     }
 
+//    public function deleteKategoria(Kategoria $kategoria) {
+//        $kategoria->addPrzepis($this);
+//    }
 
 }
