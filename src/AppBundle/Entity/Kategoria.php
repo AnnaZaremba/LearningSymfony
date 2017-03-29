@@ -112,4 +112,8 @@ class Kategoria
         $this->przepisy[] = $przepis;
     }
 
+    public function removePrzepis(Przepis $przepis) {
+        $this->przepisy->removeElement($przepis);
+    }
+
 }

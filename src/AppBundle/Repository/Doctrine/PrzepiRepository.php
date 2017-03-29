@@ -5,6 +5,7 @@ namespace AppBundle\Repository\Doctrine;
 use AppBundle\Entity\Kategoria;
 use AppBundle\Entity\Przepis as PrzepisEntity;
 use AppBundle\Form\Model\Przepis;
+use Doctrine\Common\Collections\ArrayCollection;
 
 
 class PrzepiRepository extends DoctrineRepository
@@ -52,6 +53,7 @@ class PrzepiRepository extends DoctrineRepository
     public function update(Przepis $przepis)
     {
         $em = $this->getEntityManager();
+        /** @var PrzepisEntity $przepisBaza */
         $przepisBaza = $this->find($przepis->getId());
 
         $przepisBaza->setNazwa($przepis->getNazwa());
@@ -59,13 +61,16 @@ class PrzepiRepository extends DoctrineRepository
         $przepisBaza->setWykonanie($przepis->getWykonanie());
         $przepisBaza->setZrodlo($przepis->getZrodlo());
         $przepisBaza->setUwagi($przepis->getUwagi());
-//        $przepisBaza->setKategorie($przepis->getKategorie());
+
+        //usuniecie
+        $przepisBaza->removeKategorie();
 
         /** @var Kategoria $kategoria */
         foreach ($przepis->getKategorie() as $kategoria) {
             $przepisBaza->addKategoria($kategoria);
         }
 
+//        $em->remove($kategoria);
         $em->persist($przepisBaza);
         $em->flush();
     }

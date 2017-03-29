@@ -44,7 +44,7 @@ class Przepis
     private $uwagi;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Kategoria", mappedBy="przepisy", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Kategoria", mappedBy="przepisy", cascade={"all"})
      * @ORM\JoinTable(name="przepiskategoria")
      */
     private $kategorie;
@@ -169,13 +169,19 @@ class Przepis
         $this->kategorie = $kategorie;
     }
 
-    public function addKategoria(Kategoria $kategoria) {
+    public function addKategoria(Kategoria $kategoria)
+    {
         $kategoria->addPrzepis($this);
         $this->kategorie[] = $kategoria;
     }
 
-//    public function deleteKategoria(Kategoria $kategoria) {
-//        $kategoria->addPrzepis($this);
-//    }
+    public function removeKategorie()
+    {
+        /** @var Kategoria $kategoria */
+        foreach ($this->kategorie as $kategoria) {
+            $kategoria->removePrzepis($this);
+        }
+        $this->kategorie = new ArrayCollection();
+    }
 
 }
