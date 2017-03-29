@@ -3,9 +3,48 @@
 {% block container %}
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header">Książka kucharska</h1>
-        <h2>Przepis został dodany do bazy danych.</h2>
+        <h2>Przepis został dodany.</h2>
         <div>
-            <a href="{{ path('dodajprzepis') }}" class="btn btn-primary btn-lg active" role="button">Powrót</a>
+            <fieldset>
+                <table border="6">
+                    <tr>
+                        <th width="50">Id</th>
+                        <th>Nazwa</th>
+                        <th width="200">Składniki</th>
+                        <th width="400" style="text-justify: auto">Wykonanie</th>
+                        <th width="200">Źródło</th>
+                        <th width="50">Uwagi</th>
+                        <th>Kategoria</th>
+                    </tr>
+                    {% for przepis in przepisy %}
+                        <tr>
+                            <td>{{ przepis.id }}</td>
+                            <td>{{ przepis.nazwa }}</td>
+                            <td>{{ przepis.skladniki|nl2br }}</td>
+                            <td>{{ przepis.wykonanie }}</td>
+                            <td>{{ przepis.zrodlo }}</td>
+                            <td>{{ przepis.uwagi }}</td>
+                            <td>
+                                {% for kategoria in przepis.kategorie %}
+                                    {{ kategoria.nazwa|nl2br }}
+                                {% endfor %}
+                            </td>
+                            <td align="center" colspan="2">
+                                <form method="post" action="{{ path('edytujprzepis') }}">
+                                    <input type="hidden" name="id" value="{{ przepis.id }}">
+                                    <input type="submit" value="edytuj">
+                                </form>
+                            </td>
+                            <td align="center" colspan="2">
+                                <form method="post" action="{{ path('usunprzepis') }}">
+                                    <input type="hidden" name="id" value="{{ przepis.id }}">
+                                    <input type="submit" value="usuń">
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </fieldset>
         </div>
     </div>
 {% endblock %}

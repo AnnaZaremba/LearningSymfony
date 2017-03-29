@@ -1,32 +1,10 @@
 {% extends '::ksiazkakucharska.html.twig' %}
+
 {% block container %}
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header">Książka kucharska</h1>
-        <div class="starter-template">
-            <h2>DODAJ PRZEPIS</h2>
-        </div>
-        {{ form_start(form, { 'attr': { 'novalidate': 'novalidate'}}) }}
+        <h2>Przepis został zedytowany.</h2>
         <div>
-            <div>
-                {{ form_widget(form.nazwa, {'attr': {'placeholder': 'Nazwa *', 'class': 'form-control'}}) }}
-                <div style="color: red; ">{{ form_errors(form.nazwa) }}</div>
-                {{ form_widget(form.skladniki, {'attr': {'placeholder': 'Składniki *', 'class': 'form-control'}}) }}
-                <div style="color: red; ">{{ form_errors(form.skladniki) }}</div>
-                {{ form_widget(form.wykonanie, {'attr': {'placeholder': 'Wykonanie *', 'class': 'form-control'}}) }}
-                <div style="color: red; ">{{ form_errors(form.wykonanie) }}</div>
-                {{ form_widget(form.zrodlo, {'attr': {'placeholder': 'Źródło *', 'class': 'form-control'}}) }}
-                <div style="color: red; ">{{ form_errors(form.zrodlo) }}</div>
-                {{ form_widget(form.uwagi, {'attr': {'placeholder': 'Uwagi *', 'class': 'form-control'}}) }}
-                <div style="color: red; ">{{ form_errors(form.uwagi) }}</div>
-                {{ form_widget(form.kategorie, {'attr': { 'class': 'form-control', }}) }}
-                <div style="color: red; ">{{ form_errors(form.kategorie) }}</div>
-            </div>
-            <div>
-                <h3>
-                    <button type="submit" class="btn btn-primary btn-sm">Dodaj przepis</button>
-                </h3>
-            </div>
-            {{ form_end(form) }}
             <fieldset>
                 <table border="6">
                     <tr>

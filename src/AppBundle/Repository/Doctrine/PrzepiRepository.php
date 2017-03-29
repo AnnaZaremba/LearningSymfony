@@ -5,8 +5,6 @@ namespace AppBundle\Repository\Doctrine;
 use AppBundle\Entity\Kategoria;
 use AppBundle\Entity\Przepis as PrzepisEntity;
 use AppBundle\Form\Model\Przepis;
-use Doctrine\Common\Collections\ArrayCollection;
-
 
 class PrzepiRepository extends DoctrineRepository
 {

@@ -58,6 +58,7 @@ class KsiazkaKucharskaDodajPrzepiController extends Controller
     {
         return [
             'kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
+            'przepisy' => (new PrzepiRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
         ];
     }
 
