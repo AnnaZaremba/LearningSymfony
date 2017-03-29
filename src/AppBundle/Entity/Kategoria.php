@@ -36,9 +36,8 @@ class Kategoria
 
     /**
      * Kategoria constructor.
-     * @param $przepisy
      */
-    public function __construct($przepisy)
+    public function __construct()
     {
         $this->przepisy = new ArrayCollection();
     }
