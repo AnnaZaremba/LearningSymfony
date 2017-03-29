@@ -76,7 +76,7 @@ class PrzepiRepository extends DoctrineRepository
     public function delete($id)
     {
         $przepisBaza = $this->find($id);
-
+        $przepisBaza->removeKategorie();
         $em = $this->getEntityManager();
         $em->remove($przepisBaza);
         $em->flush();

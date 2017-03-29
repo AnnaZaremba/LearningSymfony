@@ -1,4 +1,5 @@
 <?php
+
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Przepis as PrzepisEntity;
@@ -71,7 +72,10 @@ class KsiazkaKucharskaDodajPrzepiController extends Controller
 
         (new PrzepiRepository($this->getDoctrine()->getManager()))->delete($id);
 
-        return $this->redirectToRoute("dodajprzepis");
+        return $this->render('@App/KsiazkaKucharskaDodajPrzepi/PrzepisUsuniety.html.twig', array(
+            'kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
+            'przepisy' => (new PrzepiRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
+        ));
     }
 
     /**
@@ -105,14 +109,20 @@ class KsiazkaKucharskaDodajPrzepiController extends Controller
 
             (new PrzepiRepository($this->getDoctrine()->getManager()))->update($przepis);
 
-            return $this->redirectToRoute("dodajprzepis");
+            return $this->render('@App/KsiazkaKucharskaDodajPrzepi/PrzepisZedytowany.html.twig', array(
+                'form' => $form->createView(),
+                'isValid' => $form->isValid(),
+                'przepis' => $przepis,
+                'kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
+                'przepisy' => (new PrzepiRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
+            ));
         }
 
         $dane = $this->getDoctrine()
             ->getRepository('AppBundle:Przepis')
             ->findAll();
 
-        return $this->render('@App/KsiazkaKucharskaDodajPrzepi/dodajPrzepis.html.twig', array(
+        return $this->render('@App/KsiazkaKucharskaDodajPrzepi/edytujPrzepis.html.twig', array(
             'form' => $form->createView(),
             'isValid' => $form->isValid(),
             'przepis' => $przepis,
