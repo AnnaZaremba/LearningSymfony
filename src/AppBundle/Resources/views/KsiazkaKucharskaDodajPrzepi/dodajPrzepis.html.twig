@@ -27,8 +27,8 @@
                 </h3>
             </div>
             {{ form_end(form) }}
-            <fieldset>
-                <table border="6">
+            <div class="table-responsive">
+                <table class="table table-striped">
                     <tr>
                         <th width="50">Id</th>
                         <th>Nazwa</th>
@@ -37,6 +37,8 @@
                         <th width="200">Źródło</th>
                         <th width="50">Uwagi</th>
                         <th>Kategoria</th>
+                        <th>Edycja</th>
+                        <th>Usunięcie</th>
                     </tr>
                     {% for przepis in przepisy %}
                         <tr>
@@ -51,13 +53,13 @@
                                     {{ kategoria.nazwa|nl2br }}
                                 {% endfor %}
                             </td>
-                            <td align="center" colspan="2">
+                            <td>
                                 <form method="post" action="{{ path('edytujprzepis') }}">
                                     <input type="hidden" name="id" value="{{ przepis.id }}">
                                     <input type="submit" value="edytuj">
                                 </form>
                             </td>
-                            <td align="center" colspan="2">
+                            <td>
                                 <form method="post" action="{{ path('usunprzepis') }}">
                                     <input type="hidden" name="id" value="{{ przepis.id }}">
                                     <input type="submit" value="usuń">
@@ -66,7 +68,7 @@
                         </tr>
                     {% endfor %}
                 </table>
-            </fieldset>
+            </div>
         </div>
     </div>
 {% endblock %}

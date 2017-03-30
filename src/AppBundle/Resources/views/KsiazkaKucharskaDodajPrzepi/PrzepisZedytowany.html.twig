@@ -2,10 +2,11 @@
 {% block container %}
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header">Książka kucharska</h1>
-        <h2>Przepis został zedytowany.   <a href="{{ path('dodajprzepis') }}" class="btn btn-primary btn-sm active" role="button">Powrót</a></h2>
+        <h2>Przepis został zedytowany. <a href="{{ path('dodajprzepis') }}" class="btn btn-primary btn-sm active"
+                                          role="button">Powrót</a></h2>
         <div>
-            <fieldset>
-                <table border="6">
+            <div class="table-responsive">
+                <table class="table table-striped">
                     <tr>
                         <th width="50">Id</th>
                         <th>Nazwa</th>
@@ -14,6 +15,8 @@
                         <th width="200">Źródło</th>
                         <th width="50">Uwagi</th>
                         <th>Kategoria</th>
+                        <th>Edycja</th>
+                        <th>Usunięcie</th>
                     </tr>
                     {% for przepis in przepisy %}
                         <tr>
@@ -28,13 +31,13 @@
                                     {{ kategoria.nazwa|nl2br }}
                                 {% endfor %}
                             </td>
-                            <td align="center" colspan="2">
+                            <td>
                                 <form method="post" action="{{ path('edytujprzepis') }}">
                                     <input type="hidden" name="id" value="{{ przepis.id }}">
                                     <input type="submit" value="edytuj">
                                 </form>
                             </td>
-                            <td align="center" colspan="2">
+                            <td>
                                 <form method="post" action="{{ path('usunprzepis') }}">
                                     <input type="hidden" name="id" value="{{ przepis.id }}">
                                     <input type="submit" value="usuń">
@@ -43,7 +46,7 @@
                         </tr>
                     {% endfor %}
                 </table>
-            </fieldset>
+            </div>
         </div>
     </div>
 {% endblock %}

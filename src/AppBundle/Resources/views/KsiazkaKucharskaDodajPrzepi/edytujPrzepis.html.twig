@@ -5,68 +5,69 @@
         <div class="starter-template">
             <h2>EDYTUJ PRZEPIS</h2>
         </div>
-            {{ form_start(form, { 'attr': { 'novalidate': 'novalidate'}}) }}
+        {{ form_start(form, { 'attr': { 'novalidate': 'novalidate'}}) }}
+        <div>
             <div>
-                <div>
-                    {{ form_widget(form.nazwa, {'attr': {'placeholder': 'Nazwa *', 'class': 'form-control'}}) }}
-                    <div style="color: red; ">{{ form_errors(form.nazwa) }}</div>
-                    {{ form_widget(form.skladniki, {'attr': {'placeholder': 'Składniki *', 'class': 'form-control'}}) }}
-                    <div style="color: red; ">{{ form_errors(form.skladniki) }}</div>
-                    {{ form_widget(form.wykonanie, {'attr': {'placeholder': 'Wykonanie *', 'class': 'form-control'}}) }}
-                    <div style="color: red; ">{{ form_errors(form.wykonanie) }}</div>
-                    {{ form_widget(form.zrodlo, {'attr': {'placeholder': 'Źródło *', 'class': 'form-control'}}) }}
-                    <div style="color: red; ">{{ form_errors(form.zrodlo) }}</div>
-                    {{ form_widget(form.uwagi, {'attr': {'placeholder': 'Uwagi *', 'class': 'form-control'}}) }}
-                    <div style="color: red; ">{{ form_errors(form.uwagi) }}</div>
-                    {{ form_widget(form.kategorie, {'attr': { 'class': 'form-control', }}) }}
-                    <div style="color: red; ">{{ form_errors(form.kategorie) }}</div>
-                </div>
-                <div>
-                    <h3>
-                        <button type="submit" class="btn btn-primary btn-sm">Edytuj przepis</button>
-                    </h3>
-                </div>
-                {{ form_end(form) }}
-                <fieldset>
-                    <table border="6">
+                {{ form_widget(form.nazwa, {'attr': {'placeholder': 'Nazwa *', 'class': 'form-control'}}) }}
+                <div style="color: red; ">{{ form_errors(form.nazwa) }}</div>
+                {{ form_widget(form.skladniki, {'attr': {'placeholder': 'Składniki *', 'class': 'form-control'}}) }}
+                <div style="color: red; ">{{ form_errors(form.skladniki) }}</div>
+                {{ form_widget(form.wykonanie, {'attr': {'placeholder': 'Wykonanie *', 'class': 'form-control'}}) }}
+                <div style="color: red; ">{{ form_errors(form.wykonanie) }}</div>
+                {{ form_widget(form.zrodlo, {'attr': {'placeholder': 'Źródło *', 'class': 'form-control'}}) }}
+                <div style="color: red; ">{{ form_errors(form.zrodlo) }}</div>
+                {{ form_widget(form.uwagi, {'attr': {'placeholder': 'Uwagi *', 'class': 'form-control'}}) }}
+                <div style="color: red; ">{{ form_errors(form.uwagi) }}</div>
+                {{ form_widget(form.kategorie, {'attr': { 'class': 'form-control', }}) }}
+                <div style="color: red; ">{{ form_errors(form.kategorie) }}</div>
+            </div>
+            <div>
+                <h3>
+                    <button type="submit" class="btn btn-primary btn-sm">Edytuj przepis</button>
+                </h3>
+            </div>
+            {{ form_end(form) }}
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th width="50">Id</th>
+                        <th>Nazwa</th>
+                        <th width="200">Składniki</th>
+                        <th width="400" style="text-justify: auto">Wykonanie</th>
+                        <th width="200">Źródło</th>
+                        <th width="50">Uwagi</th>
+                        <th>Kategoria</th>
+                        <th>Edycja</th>
+                        <th>Usunięcie</th>
+                    </tr>
+                    {% for przepis in przepisy %}
                         <tr>
-                            <th width="50">Id</th>
-                            <th>Nazwa</th>
-                            <th width="200">Składniki</th>
-                            <th width="400" style="text-justify: auto">Wykonanie</th>
-                            <th width="200">Źródło</th>
-                            <th width="50">Uwagi</th>
-                            <th>Kategoria</th>
+                            <td>{{ przepis.id }}</td>
+                            <td>{{ przepis.nazwa }}</td>
+                            <td>{{ przepis.skladniki|nl2br }}</td>
+                            <td>{{ przepis.wykonanie }}</td>
+                            <td>{{ przepis.zrodlo }}</td>
+                            <td>{{ przepis.uwagi }}</td>
+                            <td>
+                                {% for kategoria in przepis.kategorie %}
+                                    {{ kategoria.nazwa|nl2br }}
+                                {% endfor %}
+                            </td>
+                            <td>
+                                <form method="post" action="{{ path('edytujprzepis') }}">
+                                    <input type="hidden" name="id" value="{{ przepis.id }}">
+                                    <input type="submit" value="edytuj">
+                                </form>
+                            </td>
+                            <td>
+                                <form method="post" action="{{ path('usunprzepis') }}">
+                                    <input type="hidden" name="id" value="{{ przepis.id }}">
+                                    <input type="submit" value="usuń">
+                                </form>
+                            </td>
                         </tr>
-                        {% for przepis in przepisy %}
-                            <tr>
-                                <td>{{ przepis.id }}</td>
-                                <td>{{ przepis.nazwa }}</td>
-                                <td>{{ przepis.skladniki|nl2br }}</td>
-                                <td>{{ przepis.wykonanie }}</td>
-                                <td>{{ przepis.zrodlo }}</td>
-                                <td>{{ przepis.uwagi }}</td>
-                                <td>
-                                    {% for kategoria in przepis.kategorie %}
-                                        {{ kategoria.nazwa|nl2br }}
-                                    {% endfor %}
-                                </td>
-                                <td align="center" colspan="2">
-                                    <form method="post" action="{{ path('edytujprzepis') }}">
-                                        <input type="hidden" name="id" value="{{ przepis.id }}">
-                                        <input type="submit" value="edytuj">
-                                    </form>
-                                </td>
-                                <td align="center" colspan="2">
-                                    <form method="post" action="{{ path('usunprzepis') }}">
-                                        <input type="hidden" name="id" value="{{ przepis.id }}">
-                                        <input type="submit" value="usuń">
-                                    </form>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                </fieldset>
+                    {% endfor %}
+                </table>
             </div>
         </div>
     </div>

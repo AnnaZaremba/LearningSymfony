@@ -3,25 +3,27 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header">Książka kucharska</h1>
         <h2>Kategoria została usunięta.   <a href="{{ path('dodajkategorie') }}" class="btn btn-primary btn-sm active" role="button">Powrót</a></h2>
-        <fieldset>
-            <table border="6">
+        <div class="table-responsive">
+            <table class="table table-striped">
                 <tr>
                     <th>Id</th>
                     <th>Nazwa</th>
                     <th>Zdjęcie</th>
+                    <th>Edycja</th>
+                    <th>Usunięcie</th>
                 </tr>
                 {% for kategoria in kategorie %}
                     <tr>
                         <td>{{ kategoria.id }}</td>
-                        <td>{{ kategoria.nazwa }}</td>
+                        <td>{{ kategoria.nazwa|nl2br }}</td>
                         <td>{{ kategoria.image }}</td>
-                        <td align="center" colspan="2">
+                        <td>
                             <form method="post" action="{{ path('edytujkategorie') }}">
                                 <input type="hidden" name="id" value="{{ kategoria.id }}">
                                 <input type="submit" value="edytuj">
                             </form>
                         </td>
-                        <td align="center" colspan="2">
+                        <td>
                             <form method="post" action="{{ path('usunkategorie') }}">
                                 <input type="hidden" name="id" value="{{ kategoria.id }}">
                                 <input type="submit" value="usuń">
@@ -30,6 +32,6 @@
                     </tr>
                 {% endfor %}
             </table>
-        </fieldset>
+        </div>
     </div>
 {% endblock %}
