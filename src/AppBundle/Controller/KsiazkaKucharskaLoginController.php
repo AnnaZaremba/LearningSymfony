@@ -5,6 +5,11 @@ use AppBundle\Repository\Doctrine\KategoriaRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+/**
+ * Class KsiazkaKucharskaLoginController
+ * @package AppBundle\Controller
+ * @Route("/ksiazkakucharska")
+ */
 class KsiazkaKucharskaLoginController extends Controller
 {
     /**
