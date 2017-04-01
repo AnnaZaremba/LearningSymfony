@@ -1,9 +1,9 @@
 <?php
 namespace AppBundle\Controller;
 
+use AppBundle\Repository\Doctrine\KategoriaRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 
 class KsiazkaKucharskaLoginController extends Controller
 {
@@ -12,6 +12,8 @@ class KsiazkaKucharskaLoginController extends Controller
      */
     public function adminAction()
     {
-        return new Response('<html><body>Admin page!</body></html>');
+        return $this->render('@App/KsiazkaKucharskaLogin/zalogowany.html.twig', array(
+            'kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
+        ));
     }
 }
