@@ -20,6 +20,7 @@ class Login
      */
     private $nazwa;
 
+
     /**
      * @var string
      * @Assert\NotBlank(message="Pole nie może być puste.")

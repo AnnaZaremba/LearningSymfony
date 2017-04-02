@@ -28,13 +28,11 @@ class Przepis
 
     /**
      * @var string
-     * @Assert\NotBlank(message="Pole nie może być puste.")
      */
     private $zrodlo;
 
     /**
      * @var string
-     * @Assert\NotBlank(message="Pole nie może być puste.")
      */
     private $uwagi;
 

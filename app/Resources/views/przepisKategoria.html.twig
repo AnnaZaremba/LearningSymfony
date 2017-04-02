@@ -6,7 +6,7 @@
                 <ul class="list-unstyled">
                     {% for przepis in przepisy %}
 
-                        <li><a href="{{ path('przepisid', { 'id': przepis.id }) }}">{{ przepis.nazwa }}</a></li>
+                        <h4><a href="{{ path('przepisid', { 'id': przepis.id }) }}">{{ przepis.nazwa }}</a></h4>
 
                     {% endfor %}
                 </ul>

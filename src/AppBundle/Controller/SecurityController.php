@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+
 use AppBundle\Repository\Doctrine\KategoriaRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -24,11 +25,7 @@ class SecurityController extends Controller
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
 
-        // last username entered by the useri
-        $lastUsername = $authenticationUtils->getLastUsername();
-
         return $this->render('@App/security/login.html.twig', array(
-            'last_username' => $lastUsername,
             'error' => $error,
             'kategorie' => (new KategoriaRepository($this->getDoctrine()->getManager()))->getAllOrderByName(),
         ));
