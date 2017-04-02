@@ -10,8 +10,6 @@
             <div>
                 {{ form_widget(form.nazwa, {'attr': {'placeholder': 'Nazwa *', 'class': 'form-control'}}) }}
                 <div style="color: red; ">{{ form_errors(form.nazwa) }}</div>
-                {{ form_widget(form.image, {'attr': {'placeholder': 'Zdjęcie *', 'class': 'form-control'}}) }}
-                <div style="color: red; ">{{ form_errors(form.image) }}</div>
             </div>
             <div>
                 <h3>
@@ -25,7 +23,6 @@
                     <tr>
                         <th>Id</th>
                         <th>Nazwa</th>
-                        <th>Zdjęcie</th>
                         <th>Edycja</th>
                         <th>Usunięcie</th>
                     </tr>
@@ -33,7 +30,6 @@
                         <tr>
                             <td>{{ kategoria.id }}</td>
                             <td>{{ kategoria.nazwa }}</td>
-                            <td>{{ kategoria.image }}</td>
                             <td>
                                 <form method="post" action="{{ path('edytujkategorie') }}">
                                     <input type="hidden" name="id" value="{{ kategoria.id }}">

@@ -3,30 +3,27 @@
 {% block container %}
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header">Książka kucharska</h1>
-
         <div class="row">
             <h2>KATEGORIE</h2>
         </div>
         <div class="row">
-            <div class="placeholder">
+            <div class="col-md-4">
                 {% for kategoria in kategorie %}
-                    <div class=col-md-3 >
-                        <img src="{{ asset(kategoria.image) }}"
-                             width="200" height="200"
-                             class="img-responsive"
-                             alt="{{ kategoria.nazwa }}">
-                        <h4><a href="{{ path('kategoriaid', { 'id': kategoria.id }) }}">{{ kategoria.nazwa|upper }}</a>
+                    <div>
+                        <h4>
+                            <a href="{{ path('kategoriaid', { 'id': kategoria.id }) }}">{{ kategoria.nazwa|upper }}</a>
                         </h4>
                     </div>
-                {% endfor %}</div>
-        </div>
-        <div class="row>">
-            <h2>PRZEPISY</h2>
-            <ul class="list-unstyled">
-                {% for przepis in przepisy %}
-                    <h4><a href="{{ path('przepisid', { 'id': przepis.id }) }}">{{ przepis.nazwa }}</a></h4>
                 {% endfor %}
-            </ul>
+            </div>
+            <div class="col-md-8">
+                <h2>PRZEPISY</h2>
+                <ul class="list-unstyled">
+                    {% for przepis in przepisy %}
+                        <h4><a href="{{ path('przepisid', { 'id': przepis.id }) }}">{{ przepis.nazwa }}</a></h4>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 {% endblock %}

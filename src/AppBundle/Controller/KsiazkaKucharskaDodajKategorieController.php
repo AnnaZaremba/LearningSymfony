@@ -92,7 +92,6 @@ class KsiazkaKucharskaDodajKategorieController extends Controller
 
             $kategoria->setId($kategoriaBaza->getId());
             $kategoria->setNazwa($kategoriaBaza->getNazwa());
-            $kategoria->setImage($kategoriaBaza->getImage());
         }
 
         $form = $this->createForm(KategoriaType::class, $kategoria);

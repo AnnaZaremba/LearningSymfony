@@ -38,7 +38,6 @@ class KategoriaRepository extends DoctrineRepository
 
         $kategoriaBaza = new KategoriaEntity();
         $kategoriaBaza->setNazwa($kategoria->getNazwa());
-        $kategoriaBaza->setImage($kategoria->getImage());
 
         $em->persist($kategoriaBaza);
         $em->flush();
@@ -51,7 +50,6 @@ class KategoriaRepository extends DoctrineRepository
         $kategoriaBaza = $this ->find($kategoria->getId());
 
         $kategoriaBaza->setNazwa($kategoria->getNazwa());
-        $kategoriaBaza->setImage($kategoria->getImage());
 
         $em->persist($kategoriaBaza);
         $em->flush();

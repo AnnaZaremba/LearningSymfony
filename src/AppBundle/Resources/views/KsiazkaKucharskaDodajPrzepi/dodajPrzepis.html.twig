@@ -50,7 +50,7 @@
                             <td>{{ przepis.uwagi }}</td>
                             <td>
                                 {% for kategoria in przepis.kategorie %}
-                                    {{ kategoria.nazwa|nl2br }}
+                                    <div>{{ kategoria.nazwa }}</div>
                                 {% endfor %}
                             </td>
                             <td>
