@@ -3,7 +3,7 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header">Książka kucharska</h1>
         <div class="starter-template">
-            <h2>DODAJ KATEGORIE</h2>
+            <h2>DODAJ KATEGORIĘ</h2>
         </div>
         {{ form_start(form, { 'attr': { 'novalidate': 'novalidate'}}) }}
         <div>
@@ -15,7 +15,7 @@
             </div>
             <div>
                 <h3>
-                    <button type="submit" class="btn btn-primary btn-sm">Dodaj kategorie</button>
+                    <button type="submit" class="btn btn-primary">Dodaj kategorie</button>
                 </h3>
             </div>
             {{ form_end(form) }}
@@ -36,13 +36,13 @@
                             <td>
                                 <form method="post" action="{{ path('edytujkategorie') }}">
                                     <input type="hidden" name="id" value="{{ kategoria.id }}">
-                                    <input type="submit" value="edytuj">
+                                    <input type="submit" class="btn btn-primary btn-sm" value="edytuj">
                                 </form>
                             </td>
                             <td>
                                 <form method="post" action="{{ path('usunkategorie') }}">
                                     <input type="hidden" name="id" value="{{ kategoria.id }}">
-                                    <input type="submit" value="usuń">
+                                    <input type="submit" class="btn btn-primary btn-sm" value="usuń">
                                 </form>
                             </td>
                         </tr>
