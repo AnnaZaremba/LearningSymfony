@@ -7,6 +7,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Nazwa</th>
+                    <th>Zdjęcie</th>
                     <th>Edycja</th>
                     <th>Usunięcie</th>
                 </tr>
@@ -14,6 +15,7 @@
                     <tr>
                         <td>{{ kategoria.id }}</td>
                         <td>{{ kategoria.nazwa|nl2br }}</td>
+                        <td>{{ kategoria.image }}</td>
                         <td>
                             <form method="post" action="{{ path('edytujkategorie') }}">
                                 <input type="hidden" name="id" value="{{ kategoria.id }}">

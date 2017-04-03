@@ -24,6 +24,11 @@ class Kategoria
     private $nazwa;
 
     /**
+     * @ORM\Column(type="string")
+    */
+    private $image;
+
+    /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Przepis", inversedBy="kategorie", cascade={"persist"})
      * @ORM\JoinTable(name="przepiskategoria")
      */
@@ -73,6 +78,22 @@ class Kategoria
     /**
      * @return mixed
      */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getPrzepisy()
     {
         return $this->przepisy;
@@ -86,11 +107,13 @@ class Kategoria
         $this->przepisy = $przepisy;
     }
 
-    public function addPrzepis(Przepis $przepis) {
+    public function addPrzepis(Przepis $przepis)
+    {
         $this->przepisy[] = $przepis;
     }
 
-    public function removePrzepis(Przepis $przepis) {
+    public function removePrzepis(Przepis $przepis)
+    {
         $this->przepisy->removeElement($przepis);
     }
 

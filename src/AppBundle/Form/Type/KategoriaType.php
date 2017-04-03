@@ -4,6 +4,7 @@ namespace AppBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class KategoriaType extends AbstractType
@@ -13,6 +14,7 @@ class KategoriaType extends AbstractType
         $builder
             ->add('id', HiddenType::class)
             ->add('nazwa', TextType::class)
+            ->add('image', TextareaType::class)
         ;
     }
 }

@@ -14,6 +14,11 @@ class Kategoria
     private $nazwa;
 
     /**
+     * @var string
+     */
+    private $image;
+
+    /**
      * @return string
      */
     public function getId()
@@ -44,4 +49,21 @@ class Kategoria
     {
         $this->nazwa = $nazwa;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
 }
