@@ -2,16 +2,13 @@
 
 {% block container %}
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <h1 class="page-header">Książka kucharska</h1>
-        <div class="row">
-            <h2>KATEGORIE</h2>
-        </div>
-        <div class="row">
+        <div class="row" id="lista">
             <div class="col-md-4">
+                <h2>KATEGORIE</h2>
                 {% for kategoria in kategorie %}
                     <div>
                         <h4>
-                            <a href="{{ path('kategoriaid', { 'id': kategoria.id }) }}">{{ kategoria.nazwa|upper }}</a>
+                            <a href="{{ path('kategoriaid', { 'id': kategoria.id }) }}">{{ kategoria.nazwa }}</a>
                         </h4>
                     </div>
                 {% endfor %}
@@ -20,7 +17,8 @@
                 <h2>PRZEPISY</h2>
                 <ul class="list-unstyled">
                     {% for przepis in przepisy %}
-                        <h4><a href="{{ path('przepisid', { 'id': przepis.id }) }}">{{ przepis.nazwa }}</a></h4>
+                        <h4><a href="{{ path('przepisid', { 'id': przepis.id }) }}"
+                               style="lista">{{ przepis.nazwa }}</a></h4>
                     {% endfor %}
                 </ul>
             </div>
