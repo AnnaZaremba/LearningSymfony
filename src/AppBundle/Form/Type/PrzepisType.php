@@ -19,7 +19,7 @@ class PrzepisType extends AbstractType
             ->add('skladniki', TextareaType::class)
             ->add('wykonanie', TextareaType::class)
             ->add('zrodlo', TextType::class)
-            ->add('uwagi', TextType::class)
+            ->add('uwagi', TextareaType::class)
             ->add('kategorie', EntityType::class, [
                 'class' => 'AppBundle:Kategoria',
                 'choice_label' => 'nazwa',

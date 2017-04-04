@@ -229,3 +229,15 @@ body {
     background-color: #3e8f3e;
     border-color: #3e8f3e;
 }
+
+#wrapper {
+    width: 1550px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#zdjecie {
+    width: 1500px;
+    text-align: center;
+    margin-top: -20px;
+}

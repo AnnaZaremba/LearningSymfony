@@ -1,26 +1,24 @@
 {% extends '::ksiazkakucharska.html.twig' %}
 {% block container %}
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-        <div class="row" id="lista">
-            <div class="col-md-4">
-                <h2>KATEGORIE</h2>
-                {% for kategoria in kategorie %}
-                    <div>
-                        <h4>
-                            <a href="{{ path('kategoriaid', { 'id': kategoria.id }) }}">{{ kategoria.nazwa }}</a>
-                        </h4>
-                    </div>
+    <div class="col-md-offset-2 main" id="lista">
+        <div class="col-md-4">
+            <h2>KATEGORIE</h2>
+            {% for kategoria in kategorie %}
+                <div>
+                    <h4>
+                        <a href="{{ path('kategoriaid', { 'id': kategoria.id }) }}">{{ kategoria.nazwa }}</a>
+                    </h4>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-8">
+            <h2>PRZEPISY</h2>
+            <ul class="list-unstyled">
+                {% for przepis in przepisy %}
+                    <h4><a href="{{ path('przepisid', { 'id': przepis.id }) }}"
+                           style="lista">{{ przepis.nazwa }}</a></h4>
                 {% endfor %}
-            </div>
-            <div class="col-md-8">
-                <h2>PRZEPISY</h2>
-                <ul class="list-unstyled">
-                    {% for przepis in przepisy %}
-                        <h4><a href="{{ path('przepisid', { 'id': przepis.id }) }}"
-                               style="lista">{{ przepis.nazwa }}</a></h4>
-                    {% endfor %}
-                </ul>
-            </div>
+            </ul>
         </div>
     </div>
 {% endblock %}

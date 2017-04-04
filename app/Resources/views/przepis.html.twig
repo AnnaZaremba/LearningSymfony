@@ -1,6 +1,6 @@
 {% block przepis %}
-    <div class="row">
-        <div class="col-xs-5">
+    <div class="col-md-offset-2 main">
+        <div class="col-xs-8">
             <div class="text-center">
                 <h2>{{ przepis.nazwa }}</h2>
             </div>
@@ -18,7 +18,7 @@
             </div>
             <div>
                 <h3>Uwagi</h3>
-                <div>{{ przepis.uwagi }}</div>
+                <div class="text-justify text">{{ przepis.uwagi|nl2br }}</div>
             </div>
             <div>
                 <h3>Kategorie</h3>
