@@ -1,7 +1,7 @@
 {% block przepis %}
     <div class="col-md-offset-2 main">
         <div class="col-xs-8">
-            <div class="text-center">
+            <div>
                 <h2>{{ przepis.nazwa }}</h2>
             </div>
             <div>
@@ -20,7 +20,7 @@
                 <h3>Uwagi</h3>
                 <div class="text-justify text">{{ przepis.uwagi|nl2br }}</div>
             </div>
-            <div>
+            <div id="kategorie">
                 <h3>Kategorie</h3>
                 {% for kategoria in przepis.kategorie %}
                     <div>

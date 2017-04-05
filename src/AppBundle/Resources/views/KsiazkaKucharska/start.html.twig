@@ -1,7 +1,7 @@
 {% extends '::ksiazkakucharska.html.twig' %}
 {% block container %}
-    <div class="col-md-offset-2 main" id="lista">
-        <div class="col-md-4">
+    <div class="col-md-offset-2 main">
+        <div class="col-md-4" id="kategorie">
             <h2>KATEGORIE</h2>
             {% for kategoria in kategorie %}
                 <div>
@@ -11,12 +11,11 @@
                 </div>
             {% endfor %}
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8" id="kategorie">
             <h2>PRZEPISY</h2>
             <ul class="list-unstyled">
                 {% for przepis in przepisy %}
-                    <h4><a href="{{ path('przepisid', { 'id': przepis.id }) }}"
-                           style="lista">{{ przepis.nazwa }}</a></h4>
+                    <h4><a href="{{ path('przepisid', { 'id': przepis.id }) }}">{{ przepis.nazwa }}</a></h4>
                 {% endfor %}
             </ul>
         </div>

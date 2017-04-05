@@ -44,7 +44,7 @@ body {
         padding: 20px;
         overflow-x: hidden;
         overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-        background-color: #f5f5f5;
+        background-color: #efffd4;
         border-right: 1px solid #eee;
     }
 }
@@ -54,6 +54,7 @@ body {
     margin-right: -21px; /* 20px padding + 1px border */
     margin-bottom: 20px;
     margin-left: -20px;
+    background-color: #efffd4;
 }
 
 .nav-sidebar > li > a {
@@ -65,7 +66,7 @@ body {
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
     color: #fff;
-    background-color: #428bca;
+    background-color: #efffd4;
 }
 
 /*
@@ -132,13 +133,17 @@ body {
 * Lista
  */
 
+#lista {
+    padding-bottom: 50px;
+}
+
 #lista a {
     color: #5e5e5e;
     text-decoration: none;
 }
 #lista a:hover,
 #lista a:focus {
-    color: #101010;
+    color: #222222;
     text-decoration: underline;
 }
 
@@ -180,7 +185,7 @@ body {
 .h3 {
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #899C40;
+    color: #222222;
 }
 
 /*
@@ -203,7 +208,7 @@ body {
 }
 
 /*
-* Button
+* Przyciski
  */
 
 .btn-primary {
@@ -240,4 +245,62 @@ body {
     width: 1500px;
     text-align: center;
     margin-top: -20px;
+}
+
+/*
+* Stopka
+ */
+
+#footer {
+    padding: 10px 0;
+    height: 40px;
+    margin-top: 200px;
+    text-align: center;
+    color: #222222;
+    background-color: #efffd4;
+}
+
+#footer a {
+    color: #222222;
+    text-decoration: none;
+}
+#footer a:hover,
+#footer a:focus {
+    color: #2b542c;
+    text-decoration: underline;
+}
+
+#footer a:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+
+
+span.copyright {
+    line-height: 5px;
+.heading-font;
+    text-transform: none;
+}
+
+/*
+* Kategorie
+ */
+#kategorie {
+    padding-bottom: 50px;
+}
+
+#kategorie a {
+    color: #3e8f3e;
+    text-decoration: none;
+}
+#kategorie a:hover,
+#kategorie a:focus {
+    color: #2b542c;
+    text-decoration: underline;
+}
+
+#kategorie a:focus {
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
 }

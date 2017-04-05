@@ -4,7 +4,7 @@
             {#<img src="{{ asset(kategoria.image) }}"#}
                  {#class="img-responsive">#}
             <h2>{{ kategoria.nazwa|upper }}</h2>
-            <div class="row" id="lista">
+            <div class=class="col-md-4" id="kategorie">
                 <ul class="list-unstyled">
                     {% for przepis in przepisy %}
                         <h4><a href="{{ path('przepisid', { 'id': przepis.id }) }}">{{ przepis.nazwa }}</a></h4>
