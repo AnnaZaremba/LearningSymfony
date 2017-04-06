@@ -1,8 +1,9 @@
 {% block przepisKategoria %}
+    {% block zdjecie %}
+        {% include('::zdjecieKategoria.html.twig') %}
+    {% endblock %}
     <div class="col-md-offset-2 main">
         <div>
-            {#<img src="{{ asset(kategoria.image) }}"#}
-                 {#class="img-responsive">#}
             <h2>{{ kategoria.nazwa|upper }}</h2>
             <div class=class="col-md-4" id="kategorie">
                 <ul class="list-unstyled">

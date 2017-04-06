@@ -64,18 +64,6 @@
 {% block menu %}
     {% include('::menu.html.twig') %}
 {% endblock %}
-<div>
-    <div class="col-md-offset-2 main" id="naglowek">
-        <h1 class="page-header">Książka kucharska</h1>
-    </div>
-    <div class="col-md-offset-2 main">
-        <div class="row" id="wrapper">
-            <div id="zdjecie">
-                <img src="{{ asset('images/kategoria/dinner.jpg') }}" width="1500px"/>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="row">
     {% block container %}{% endblock %}
 </div>

@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\OrderBy;
 
 /**
  * @ORM\Entity
@@ -31,6 +32,7 @@ class Kategoria
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Przepis", inversedBy="kategorie", cascade={"persist"})
      * @ORM\JoinTable(name="przepiskategoria")
+     * @OrderBy({"nazwa" = "ASC"})
      */
     private $przepisy;
 
