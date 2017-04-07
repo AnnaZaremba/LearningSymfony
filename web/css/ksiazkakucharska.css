@@ -194,11 +194,14 @@ body {
 
 #menu a {
     color: #3e8f3e;
+
     text-decoration: none;
 }
+
 #menu a:hover,
 #menu a:focus {
     color: #2b542c;
+    background-color: inherit;
     text-decoration: underline;
 }
 
@@ -254,7 +257,6 @@ body {
 #footer {
     padding: 10px 0;
     height: 40px;
-    margin-top: 200px;
     text-align: center;
     color: #222222;
     background-color: #efffd4;
@@ -274,8 +276,6 @@ body {
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px;
 }
-
-
 
 span.copyright {
     line-height: 5px;
