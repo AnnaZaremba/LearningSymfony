@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row" id="menu">
             <div class="col-sm-3 col-md-2 sidebar">
-                <h3>KATEGORIE</h3>
+                <h3>Kategorie</h3>
                 <ul class="nav nav-sidebar">
                     {% for kategoria in kategorie %}
                         <li><a href="{{ path('kategoriaid', { 'id': kategoria.id }) }}">{{ kategoria.nazwa|upper }}</a></li>
@@ -11,7 +11,7 @@
                 <div>
                     <div class="row">
                         <div id="footer">
-                            <span class="copyright">Copyright &copy; <a href target="_blank">Anna Zaremba</a> 2017</span></p>
+                            <span class="copyright">Copyright &copy; <a href target="_blank({{ path('ksiazkakucharskaomnie') }})">Anna Zaremba</a> 2017</span></p>
                         </div>
                     </div>
                 </div>
