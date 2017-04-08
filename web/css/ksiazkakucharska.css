@@ -172,31 +172,20 @@ body {
 .h2,
 #nazwaStrony h3,
 .h3 {
-    margin-top: 0px;
+    margin-top: 0;
     margin-bottom: 10px;
-}
-
-/*
-* Nagłowek
- */
-#naglowek h1,
-.h1,
-#naglowek h2,
-.h2,
-#naglowek h3,
-.h3 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: #222222;
 }
 
 /*
 * Menu
  */
 
+#menu {
+    margin-top: 0;
+}
+
 #menu a {
     color: #3e8f3e;
-
     text-decoration: none;
 }
 
@@ -210,6 +199,56 @@ body {
 #menu a:focus {
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px;
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: #333;
+}
+.navbar-inverse .navbar-toggle {
+    border-color: #333;
+}
+.navbar-toggle:focus {
+    outline: 0;
+}
+
+/*
+* Menu-xs
+ */
+#menu-xs {
+    padding: 5px 5px 5px 5px;
+    margin-top: 5px;
+    margin-bottom: -25px;
+    margin-right: -7px;
+    background-color: #efffd4;
+}
+
+#menu-xs h1,
+.h1,
+#menu-xs h2,
+.h2,
+#menu-xs h3,
+.h3 {
+    margin-left: 10px;
+}
+
+#menu-xs .navbar-toggle {
+    position: relative;
+    float: right;
+    padding: 9px 10px;
+    margin-top: 8px;
+    margin-right: 15px;
+    margin-bottom: -20px;
+    background-color: black;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+#menu-xs .icon-bar {
+    background-color: black;
+}
+
+#menu-xs .icon-bar {
+    background-color: white;
 }
 
 /*
@@ -312,19 +351,4 @@ div.copyright {
     outline-offset: -2px;
 }
 
-/*
-* Navbar
- */
-
-#menu-xs .navbar-toggle {
-    background-color: red;
-    border-color: red;
-}
-#menu-xs .icon-bar {
-    background-color: cornflowerblue;
-}
-#menu-xs:hover,
-#menu-xs:focus {
-     background-color: red;
- }
 
