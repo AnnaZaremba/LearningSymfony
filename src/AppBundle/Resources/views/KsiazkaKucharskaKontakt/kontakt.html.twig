@@ -11,13 +11,13 @@
         <div>
             <div>
                 {{ form_widget(form.imie, {'attr': {'placeholder': 'Imię *', 'class': 'form-control'}}) }}
-                <div>{{ form_errors(form.imie) }}</div>
+                <div style="color: red; ">{{ form_errors(form.imie) }}</div>
                 {{ form_widget(form.email, {'attr': {'placeholder': 'E-mail *', 'class': 'form-control'}}) }}
-                <div>{{ form_errors(form.email) }}</div>
+                <div style="color: red; ">{{ form_errors(form.email) }}</div>
                 {{ form_widget(form.temat, {'attr': {'placeholder': 'Temat *', 'class': 'form-control'}}) }}
-                <div>{{ form_errors(form.temat) }}</div>
+                <div style="color: red; ">{{ form_errors(form.temat) }}</div>
                 {{ form_widget(form.wiadomosc, {'attr': {'placeholder': 'Wiadomość *', 'class': 'form-control'}}) }}
-                <div>{{ form_errors(form.wiadomosc) }}</div>
+                <div style="color: red; ">{{ form_errors(form.wiadomosc) }}</div>
             </div>
             <div>
                 <h3>

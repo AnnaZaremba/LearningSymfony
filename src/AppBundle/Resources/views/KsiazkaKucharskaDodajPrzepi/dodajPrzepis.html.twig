@@ -1,7 +1,7 @@
 {% extends '::ksiazkakucharska.html.twig' %}
 {% block container %}
     <div class="main">
-        <div class="starter-template">
+        <div>
             <h2>DODAJ PRZEPIS</h2>
         </div>
         {{ form_start(form, { 'attr': { 'novalidate': 'novalidate'}}) }}
@@ -17,8 +17,8 @@
                 <div style="color: red; ">{{ form_errors(form.zrodlo) }}</div>
                 {{ form_widget(form.uwagi, {'attr': {'placeholder': 'Uwagi *', 'class': 'form-control'}}) }}
                 <div style="color: red; ">{{ form_errors(form.uwagi) }}</div>
-                {{ form_widget(form.kategorie, {'attr': { 'class': 'form-control', }}) }}
-                <div style="color: red; ">{{ form_errors(form.kategorie) }}</div>
+                {{ form_widget(form.kategorie, {'attr': { 'class': 'form-control'}}) }}
+                <div style="color: red;">{{ form_errors(form.kategorie) }}</div>
             </div>
             <div>
                 <h3>
