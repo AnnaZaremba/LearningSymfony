@@ -30,7 +30,7 @@ class PrzepisType extends AbstractType
                     return $er->createQueryBuilder('u')
                         ->groupBy('u.id')
                         ->orderBy('u.nazwa', 'ASC');
-                }
+                },
             ]);
     }
 }

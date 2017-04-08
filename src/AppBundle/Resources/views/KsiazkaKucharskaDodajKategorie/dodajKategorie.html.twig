@@ -6,10 +6,12 @@
         </div>
         {{ form_start(form, { 'attr': { 'novalidate': 'novalidate'}}) }}
         <div>
-            <div>
-                {{ form_widget(form.nazwa, {'attr': {'placeholder': 'Nazwa *', 'class': 'form-control'}}) }}
+            <div id="niskiePole">
+                <h4>Nazwa</h4>
+                {{ form_widget(form.nazwa, {'attr': {'class': 'form-control'}}) }}
                 <div style="color: red; ">{{ form_errors(form.nazwa) }}</div>
-                {{ form_widget(form.image, {'attr': {'placeholder': 'Zdjęcie *', 'class': 'form-control'}}) }}
+                <h4>Zdjęcie</h4>
+                {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
                 <div style="color: red; ">{{ form_errors(form.image) }}</div>
             </div>
             <div>
