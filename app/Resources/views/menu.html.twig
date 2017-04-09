@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
             </button>
             <div id="">
-           <h3>Kategorie</h3>
+                <h3>Kategorie</h3>
             </div>
         </div>
     </div>
@@ -20,8 +20,8 @@
                     <li><a href="{{ path('kategoriaid', { 'id': kategoria.id }) }}">{{ kategoria.nazwa|upper }}</a>
                     </li>
                 {% endfor %}
-                <div class="copyright">Copyright &copy; <a href target="_blank({{ path('ksiazkakucharskaomnie') }})">Anna
-                        Zaremba</a> 2017
+                <div class="copyright">Copyright &copy; <a href="{{ path('ksiazkakucharskaomnie') }}">Anna Zaremba</a>
+                    2017
                 </div>
             </ul>
         </div>
