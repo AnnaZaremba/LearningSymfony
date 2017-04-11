@@ -35,6 +35,20 @@ git config user.name "Anna Zaremba"
 git config user.email "aniazarem@gmail.com"
 ```
 
+Github w konsoli
+----------------
+```bash
+cd nazwa_katalogu
+git status - pokazuje zmienione pliki
+git diff nazwa_pliku - pokazuje zmiany w pliku
+git add -all - dodaje do wysyłki
+git commit -am 'tytuł komita' - puszcza komita
+git branch -av - sprawdza bruncha np. master, develop
+git push origin master - wysyła kompta do GitHuba
+
+mc -e nazwa_pliku - edycja pliku
+
+```
 Adding permissions
 ------------------
 ```bash
