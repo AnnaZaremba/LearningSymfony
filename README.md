@@ -19,6 +19,13 @@ chmod -R 0777 var/cache
 chmod -R 0777 var/sessions
 ```
 
+Running server
+------------
+```bash
+ cd my_project_name/
+ php bin/console server:run
+```
+
 Git configuration
 -----------------
 
