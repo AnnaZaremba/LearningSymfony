@@ -63,7 +63,7 @@ bin/console debug:router
 
 Czyszczenie Cache
 -----------------
-```
+```bash
 sudo bin/console cache:clear
 ```
 
