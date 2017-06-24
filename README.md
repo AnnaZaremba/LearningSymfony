@@ -57,6 +57,8 @@ chmod -R 0777 foldername
 
 Routing
 -------
+
+Lista adresów serwisu
 ```bash
 bin/console debug:router
 ```
@@ -75,6 +77,8 @@ Alt Enter - podpowiada np. importuje klasy
 Ctrl Alt L - formatowanie
 Ctrl Spacja - pokazuje dostępne metody
 Ctrl B - wyswietlenie plików w których używa się danej klasy
+Ctrl + n - wyszukuje klasy w projekcie
+Ctrl + Shift + n - wyszukuje wszystkie pliki w projekcie
 ```
 
 OnClick - wysuwany tekst
