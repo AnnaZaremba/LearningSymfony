@@ -35,6 +35,15 @@ git config user.name "Anna Zaremba"
 git config user.email "aniazarem@gmail.com"
 ```
 
+Dodawanie commita
+```bash
+cd developing_ania/github/montujemymeble/
+git status
+git add .
+git commit -am 'usuniecie katalogu idea'
+git push origin feature/1_czyste_symfony
+```
+
 Github w konsoli
 ----------------
 ```bash
