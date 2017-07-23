@@ -92,7 +92,8 @@ Ctrl + Shift + n - wyszukuje wszystkie pliki w projekcie
 
 OnClick - wysuwany tekst
 ------------------------
-```$xslt
+```
+$xslt
 <!DOCTYPE html>
 <html>
 <head>
@@ -132,5 +133,11 @@ function myFunction() {
 </body>
 </html>
 ```
+
+Tinymce
+--------
+```bash
+
+composer require stfalcon/tinymce-bundle='3.0'
 
 
