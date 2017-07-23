@@ -138,6 +138,6 @@ Tinymce
 --------
 ```bash
 
-composer require stfalcon/tinymce-bundle='3.0'
+composer require stfalcon/tinymce-bundle='2.1'
 
 
