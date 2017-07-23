@@ -140,4 +140,17 @@ Tinymce
 
 composer require stfalcon/tinymce-bundle='2.1'
 
+// app/AppKernel.php
+<?php
+    // ...
+    public function registerBundles()
+    {
+        $bundles = array(
+            // ...
+            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
+        );
+    }
 
+bin/console assets:install web/
+
+{{ tinymce_init() }}
