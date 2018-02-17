@@ -14,9 +14,9 @@ composer install
 ```
 3. Permission to folders
 ```bash
-chmod -R 0777 var/logs
-chmod -R 0777 var/cache
-chmod -R 0777 var/sessions
+sudo chmod -R 0777 var/logs
+sudo chmod -R 0777 var/cache
+sudo chmod -R 0777 var/sessions
 ```
 
 Running server
@@ -56,13 +56,6 @@ git branch -av - sprawdza bruncha np. master, develop
 git push origin master - wysyła kompta do GitHuba
 
 mc -e nazwa_pliku - edycja pliku
-
-```
-Adding permissions
-------------------
-```bash
-chmod -R 0777 foldername
-```
 
 Routing
 -------
